@@ -16,7 +16,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from .views import base
+from .views import cv
+from .views import connexion
+from .views import appel_offres
+from .views import ajouter_offres
+from .views import postuler
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', base),
+    path('connexion/', connexion, name='connexion'),
+    path('cv/', cv, name='cv'),
+    path('appel_offres/', appel_offres, name='appel_offres'),
+    path('ajouter_offres/', ajouter_offres, name='ajouter_offres'),
+    path('postuler/', postuler, name='postuler'),
 ]
