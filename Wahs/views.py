@@ -20,3 +20,6 @@ def postuler(request):
 
 def ajouter_personnel(request):
     return render(request, 'ajouter_personnel.html')
+
+def ajouter_utilisateur(request):
+    return render(request, 'ajouter_utilisateur.html')

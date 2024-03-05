@@ -23,6 +23,7 @@ from .views import appel_offres
 from .views import ajouter_offres
 from .views import postuler
 from .views import ajouter_personnel
+from .views import ajouter_utilisateur
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,4 +34,5 @@ urlpatterns = [
     path('ajouter_offres/', ajouter_offres, name='ajouter_offres'),
     path('postuler/', postuler, name='postuler'),
     path('ajouter_personnel/', ajouter_personnel, name='ajouter_personnel'),
+    path('ajouter_utilisateur/', ajouter_utilisateur, name='ajouter_utilisateur'),
 ]
