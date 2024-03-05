@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Home | Bootstrap demo</title>
+  <title>Acceuil | Ajouter Offres</title>
   {% load static %}
   <!--favicon-->
 	<link rel="icon" href="{% static 'assets/images/favicon-32x32.png' %}" type="image/png">
@@ -13,8 +13,6 @@
   <link href="{% static 'assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css' %}" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{% static 'assets/plugins/metismenu/metisMenu.min.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'assets/plugins/metismenu/mm-vertical.css' %}">
-  <link href="{% static 'assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/plugins/bs-stepper/css/bs-stepper.css' %}" rel="stylesheet">
   <!--bootstrap css-->
   <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -30,12 +28,10 @@
 </head>
 
 
-
-
 <body>
 
-   <!--start header-->
-   <header class="top-header">
+  <!--start header-->
+  <header class="top-header">
     <nav class="navbar navbar-expand align-items-center justify-content-between gap-3">
       <div class="btn-toggle">
         <a href="#offcanvasPrimaryMenu" data-bs-toggle="offcanvas"><i class="material-icons-outlined">menu</i></a>
@@ -624,244 +620,80 @@
   <!--start main wrapper-->
   <main class="main-wrapper">
     <div class="main-content">
-      <!--breadcrumb-->
-				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-					<div class="breadcrumb-title pe-3">Components</div>
-					<div class="ps-3">
-						<nav aria-label="breadcrumb">
-							<ol class="breadcrumb mb-0 p-0">
-								<li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
-								</li>
-								<li class="breadcrumb-item active" aria-current="page">Wizard</li>
-							</ol>
-						</nav>
-					</div>
-					<div class="ms-auto">
-						<div class="btn-group">
-							<button type="button" class="btn btn-primary">Settings</button>
-							<button type="button" class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Toggle Dropdown</span>
-							</button>
-							<div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">	<a class="dropdown-item" href="javascript:;">Action</a>
-								<a class="dropdown-item" href="javascript:;">Another action</a>
-								<a class="dropdown-item" href="javascript:;">Something else here</a>
-								<div class="dropdown-divider"></div>	<a class="dropdown-item" href="javascript:;">Separated link</a>
+
+        <div class="container-fluid my-5">
+					<div class="col-12 col-md-8 col-lg-6 col-xl-5 col-xxl-6 mx-auto">
+            <div class="card">
+							<div class="card-body p-6">
+								<h5 class="mb-6">Ajouter Personnel</h5>
+								<form class="row g-3">
+									<div class="col-md-4">
+										<label for="input1" class="form-label">Nom de l'employé</label>
+										<input type="text" class="form-control" id="input1" placeholder="First Name">
+									</div>
+
+                                    <div class="col-md-4">
+										<label for="input1" class="form-label">Prenom de l'employé</label>
+										<input type="text" class="form-control" id="input1" placeholder="Last Name">
+									</div>
+								
+                  <div class="col-md-4">
+										<label for="input2" class="form-label">Date de Naissance</label>
+										<input type="date" class="form-control" id="input2" placeholder="Last Name">
+									</div>
+									
+									<div class="col-md-4">
+										<label for="input5" class="form-label">Email</label>
+										<input type="text" class="form-control" id="input6" placeholder="joseph@exemple.com">  
+									</div>
+									
+                                    <div class="col-md-4">
+										<label for="input1" class="form-label">Adresse</label>
+										<input type="text" class="form-control" id="input1" placeholder="Adresse complete">
+									</div>
+
+                                    <div class="col-md-4">
+										<label for="input1" class="form-label">N° tel</label>
+										<input type="text" class="form-control" id="input1" placeholder="Saisir Numero">
+									</div>
+									
+									<div class="col-md-12">
+										<div class="d-md-flex d-grid align-items-center gap-3">
+											<button type="button" class="btn btn-primary px-4">Soumettre</button>
+											<button type="button" class="btn btn-light px-4">Effacer</button>
+										</div>
+									</div>
+								</form>
 							</div>
 						</div>
-					</div>
-				</div>
-				<!--end breadcrumb-->
-      
-
-        <!--start stepper one--> 
-			   
-				<div id="stepper1" class="bs-stepper">
-				  <div class="card">
-					
-					<div class="card-header">
-						<div class="d-lg-flex flex-lg-row align-items-lg-center justify-content-lg-between" role="tablist">
-							<div class="step" data-target="#test-l-1">
-							  <div class="step-trigger" role="tab" id="stepper1trigger1" aria-controls="test-l-1">
-								<div class="bs-stepper-circle">1</div>
-								<div class="">
-									<h5 class="mb-0 steper-title">Information Personnelle</h5>
-								</div>
-							  </div>
-							</div>
-							<div class="bs-stepper-line"></div>
-							<div class="step" data-target="#test-l-2">
-								<div class="step-trigger" role="tab" id="stepper1trigger2" aria-controls="test-l-2">
-								  <div class="bs-stepper-circle">2</div>
-								  <div class="">
-									  <h5 class="mb-0 steper-title">Cursus</h5>
-								  </div>
-								</div>
-							  </div>
-							<div class="bs-stepper-line"></div>
-							<div class="step" data-target="#test-l-3">
-								<div class="step-trigger" role="tab" id="stepper1trigger3" aria-controls="test-l-3">
-								  <div class="bs-stepper-circle">3</div>
-								  <div class="">
-									  <h5 class="mb-0 steper-title">Competences</h5>
-								  </div>
-								</div>
-							  </div>
-							  <div class="bs-stepper-line"></div>
-								<div class="step" data-target="#test-l-4">
-									<div class="step-trigger" role="tab" id="stepper1trigger4" aria-controls="test-l-4">
-									<div class="bs-stepper-circle">4</div>
-									<div class="">
-										<h5 class="mb-0 steper-title">Experiences et Loisirs</h5>
-									</div>
-									</div>
-                  
-								</div>
-                
-						  </div>
-					</div>
-				    <div class="card-body">
-					
-					  <div class="bs-stepper-content">
-						<form onSubmit="return false">
-						  <div id="test-l-1" role="tabpanel" class="bs-stepper-pane" aria-labelledby="stepper1trigger1">
-							<h5 class="mb-1">Entre tes Informations Personnelles</h5>
-
-							<div class="row g-3">
-								<div class="col-12 col-lg-4">
-									<label class="form-label">Nom</label>
-									<input type="text" class="form-control" placeholder="Nom">
-								</div>
-                <div class="col-12 col-lg-4">
-									<label class="form-label">Prenoms</label>
-									<input type="text" class="form-control" placeholder="Prenoms">
-								</div>
-
-                <div class="col-12 col-lg-4">
-									<label class="form-label">Inserer Photo</label>
-									<input type="file" class="form-control" placeholder="Photo">
-								</div>
-               
-								<div class="col-12 col-lg-4">
-									<label class="form-label">Date de Naissance</label>
-									<input type="text" class="form-control" placeholder="Date de Naissance">
-								</div>
-								<div class="col-12 col-lg-4">
-									<label class="form-label">Sitution matrimoniale</label>
-									<input type="text" class="form-control" placeholder="Sitution matrimoniale">
-								</div>
-								<div class="col-12 col-lg-4">
-									<label class="form-label">Email</label>
-									<input type="text" class="form-control" placeholder="joseph@exemple.com">
-								</div>
-								<div class="col-12 col-lg-6">
-									<label class="form-label">Adresse</label>
-                  <input type="text" class="form-control" placeholder="Adresse">
-									  </select>
-								</div>
-								<div class="col-12 col-lg-6">
-									<label class="form-label">Language</label>
-									<select class="form-select">
-										<option selected>---</option>
-										<option value="1">One</option>
-										<option value="2">Two</option>
-										<option value="3">Three</option>
-									  </select>
-								</div>
-								<div class="col-12 col-lg-6">
-									<button class="btn btn-primary px-4" onclick="stepper1.next()">Next<i class='bx bx-right-arrow-alt ms-2'></i></button>
-								</div>
-							</div><!---end row-->
-							
-						  </div>
-
-						  <div id="test-l-2" role="tabpanel" class="bs-stepper-pane" aria-labelledby="stepper1trigger2">
-
-							<p class="mb-4">Entre ton Cursus</p>
-
-							<div class="row g-3">
-                <div class="col-12 col-lg-4">
-                    <label class="form-label">Année</label>
-                    <input type="date" class="form-control" placeholder="Enter your year">
-                </div>
-                <div class="col-12 col-lg-4">
-                    <label class="form-label">Diplome</label>
-                    <input type="text" class="form-control" placeholder="Entre ton Diplome">
-                </div>
-                <div class="col-12 col-lg-4">
-                    <label class="form-label">Etablissement</label>
-                    <input type="text" class="form-control" placeholder="Entre ton Etablissemnet">
-                </div>
+          </div>
+          <div class="col-12 col-xl-6">
+            <div class="card">
+						
+						</div>
+          </div>
           
-								<div class="col-12">
-									<div class="d-flex align-items-center gap-3">
-										<button class="btn btn-outline-secondary px-4" onclick="stepper1.previous()"><i class='bx bx-left-arrow-alt me-2'></i>Precedent</button>
-										<button class="btn btn-primary px-4" onclick="stepper1.next()">suivant<i class='bx bx-right-arrow-alt ms-2'></i></button>
-									</div>
-								</div>
-							</div><!---end row-->
+         
+         </div><!--end row-->
+
+         <div class="row">
+          <div class="col-12 col-lg-12">
+						
+
+						<div class="card">
 							
-						  </div>
+							</div>
 
-						  <div id="test-l-3" role="tabpanel" class="bs-stepper-pane" aria-labelledby="stepper1trigger3">
-							<h5 class="mb-1">Competences</h5>
 
-							<div class="row g-3">
-								<div class="col-12 col-lg-6">
-									<label class="form-label">Spécialité</label>
-									<select class="form-select">
-										<option selected>---</option>
-										<option value="1">One</option>
-										<option value="2">Two</option>
-										<option value="3">Three</option>
-									  </select>
-								</div>
-								<div class="col-12">
-									<div class="d-flex align-items-center gap-3">
-										<button class="btn btn-outline-secondary px-4" onclick="stepper1.previous()"><i class='bx bx-left-arrow-alt me-2'></i>Precedent</button>
-										<button class="btn btn-primary px-4" onclick="stepper1.next()">Suivant<i class='bx bx-right-arrow-alt ms-2'></i></button>
-									</div>
-								</div>
-							</div><!---end row-->
-							
-						  </div>
-
-						  <div id="test-l-4" role="tabpanel" class="bs-stepper-pane" aria-labelledby="stepper1trigger4">
-							<h5 class="mb-1">Experiences</h5>
-							<p class="mb-4">Parlé nous de votre experience professionnelle anterieure</p>
-
-							<div class="row g-3">
-								<div class="col-12 col-lg-2">
-									<label class="form-label">Periode</label>
-									<input type="text" class="form-control" placeholder="Periode">
-								</div>
+							<div class="card">
 								
-								<div class="col-12 col-lg-2">
-									<label class="form-label">Poste occupé</label>
-									<input type="text" class="form-control" placeholder="Poste occupé">
-								</div>
-								
-								<div class="col-12 col-lg-2">
-									<label class="form-label">Type Contrat</label>
-                  <select class="form-select">
-										<option selected>---</option>
-										<option value="1">One</option>
-										<option value="2">Two</option>
-										<option value="3">Three</option>
-									  </select>
-
-								</div>
-                <h5 class="mb-1">Loisirs</h5>
-							  <p class="mb-4">Parlé nous de vos Loisirs</p
-
-                <div class="col-12 col-lg-2">
-									<label class="form-label">Loisirs</label>
-									<input type="textarea" class="form-control" placeholder="Loisirs">
-								</div>
-								
-								<div class="col-12">
-									<div class="d-flex align-items-center gap-3">
-										<button class="btn btn-primary px-4" onclick="stepper1.previous()"><i class='bx bx-left-arrow-alt me-2'></i>Precedent</button>
-										<button class="btn btn-success px-4" onclick="stepper1.next()">Valider</button>
-									</div>
-								</div>
-							</div><!---end row-->
-
-              
-							
-						  </div>
-						</form>
+								</div>  
 					  </div>
-					   
-					</div>
-				   </div>
-				 </div>
-				<!--end stepper one--> 
-
-                
-				
-				  <!--end stepper two--> 
 
 
-				  <!--end stepper three--> 
+         </div><!--end row-->
+
+
 
     </div>
   </main>
@@ -1448,18 +1280,17 @@
   </div>
   <!--start switcher-->
 
-   <!--bootstrap js-->
-   <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+  <!--bootstrap js-->
+  <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
 
-   <!--plugins-->
-   <script src="{% static 'assets/js/jquery.min.js' %}"></script>
-   <!--plugins-->
-   <script src="{% static 'assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js' %}"></script>
-   <script src="{% static 'assets/plugins/metismenu/metisMenu.min.js' %}"></script>
-   <script src="{% static 'assets/plugins/bs-stepper/js/bs-stepper.min.js' %}"></script>
-   <script src="{% static 'assets/plugins/bs-stepper/js/main.js' %}"></script>
-   <script src="{% static 'assets/js/main.js' %}"></script>
- 
+  <!--plugins-->
+  <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+  <!--plugins-->
+  <script src="{% static 'assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js' %}"></script>
+  <script src="{% static 'assets/plugins/metismenu/metisMenu.min.js' %}"></script>
+  <script src="{% static 'assets/plugins/bs-stepper/js/bs-stepper.min.js' %}"></script>
+  <script src="{% static 'assets/plugins/bs-stepper/js/main.js' %}"></script>
+  <script src="{% static 'assets/js/main.js' %}"></script>
 
 </body>
 

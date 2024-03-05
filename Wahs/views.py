@@ -17,3 +17,6 @@ def ajouter_offres(request):
 
 def postuler(request):
     return render(request, 'postuler.html')
+
+def ajouter_personnel(request):
+    return render(request, 'ajouter_personnel.html')
