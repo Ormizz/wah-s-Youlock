@@ -31,7 +31,7 @@ $(function() {
         type: 'gradient',
         gradient: {
           shade: 'dark',
-          gradientToColors: [ '#0d6efd'],
+          gradientToColors: [ '#FF8C00'],
           shadeIntensity: 1,
           type: 'vertical',
           opacityFrom: 0.8,
@@ -40,7 +40,7 @@ $(function() {
         },
       },
 
-      colors: ["#0d6efd"],
+      colors: ["#FF8C00"],
      
       xaxis: {
         categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
@@ -721,7 +721,7 @@ var options = {
       position: 'bottom',
       show: !1
   },
-  colors: ["#0d6efd", "#fc185a", "#02c27a", "#fd7e14"],
+  colors: ["#FF8C00", "#fc185a", "#02c27a", "#fd7e14"],
 dataLabels: {
 enabled: !1
 },

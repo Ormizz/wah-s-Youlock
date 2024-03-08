@@ -274,7 +274,7 @@ $(function () {
       type: 'gradient',
       gradient: {
         shade: 'dark',
-        gradientToColors: ['#0d6efd', 'rgba(13, 109, 253, 0.35);'],
+        gradientToColors: ['#FF8C00', 'rgba(13, 109, 253, 0.35);'],
         shadeIntensity: 1,
         type: 'vertical',
         //opacityFrom: 0.8,
@@ -282,7 +282,7 @@ $(function () {
         stops: [0, 100, 100, 100]
       },
     },
-    colors: ['#0d6efd', "rgba(13, 109, 253, 0.35);"],
+    colors: ['#FF8C00', "rgba(13, 109, 253, 0.35);"],
     plotOptions: {
       // bar: {
       //   horizontal: !1,

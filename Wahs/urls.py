@@ -27,7 +27,7 @@ from .views import ajouter_utilisateur
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', base),
+    path('base/', base),
     path('connexion/', connexion, name='connexion'),
     path('cv/', cv, name='cv'),
     path('appel_offres/', appel_offres, name='appel_offres'),

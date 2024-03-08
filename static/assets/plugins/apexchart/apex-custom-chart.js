@@ -33,7 +33,7 @@ $(function() {
     type: 'gradient',
     gradient: {
       shade: 'dark',
-      gradientToColors: ['#0d6efd'],
+      gradientToColors: ['#FF8C00'],
       shadeIntensity: 1,
       type: 'vertical',
       opacityFrom: 0.8,
@@ -41,7 +41,7 @@ $(function() {
       stops: [0, 100, 100, 100]
     },
   },
-  colors: ["#0d6efd"],
+  colors: ["#FF8C00"],
   grid: {
     show: true,
     borderColor: 'rgba(0, 0, 0, 0.15)',
@@ -163,7 +163,7 @@ $(function() {
         width: 4,
         colors: ["transparent"]
     },
-      colors: ["#02c27a", "#0d6efd", "#fc185a"],
+      colors: ["#02c27a", "#FF8C00", "#fc185a"],
       grid: {
         show: true,
         borderColor: 'rgba(0, 0, 0, 0.15)',
@@ -317,14 +317,14 @@ var options = {
       shade: 'dark',
       type: 'horizontal',
       shadeIntensity: 0.5,
-      gradientToColors: ['#0d6efd'],
+      gradientToColors: ['#FF8C00'],
       inverseColors: true,
       opacityFrom: 1,
       opacityTo: 1,
       stops: [0, 100]
     }
   },
-  colors: ["#0d6efd"],
+  colors: ["#FF8C00"],
   stroke: {
     lineCap: 'round'
   },

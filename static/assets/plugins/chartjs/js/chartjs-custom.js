@@ -74,11 +74,11 @@ $(function() {
                 label: 'Google',
                 data: [18, 25, 14, 12, 17, 8, 10],
                 backgroundColor: [
-                    '#0d6efd'
+                    '#FF8C00'
                 ],
                 lineTension: 0,
                 borderColor: [
-                    '#0d6efd'
+                    '#FF8C00'
                 ],
                 borderWidth: 0
             },
@@ -123,7 +123,7 @@ $(function() {
              datasets: [{
                  data: [12, 19, 3, 5, 2, 3],
                  backgroundColor: [
-                     '#0d6efd',
+                     '#FF8C00',
                      '#6f42c1',
                      '#d63384',
                      '#fd7e14',
@@ -156,7 +156,7 @@ $(function() {
               datasets: [{
                   data: [12, 19, 3, 5, 2, 3],
                   backgroundColor: [
-                     '#0d6efd',
+                     '#FF8C00',
                      '#6f42c1',
                      '#d63384',
                      '#fd7e14',
@@ -252,7 +252,7 @@ $(function() {
                 label: 'My First Dataset',
                 data: [11, 16, 7, 3, 14],
                 backgroundColor: [
-                     '#0d6efd',
+                     '#FF8C00',
                      '#6f42c1',
                      '#d63384',
                      '#fd7e14',

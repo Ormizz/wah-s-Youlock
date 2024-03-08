@@ -33,7 +33,7 @@ $(function () {
       type: 'gradient',
       gradient: {
         shade: 'dark',
-        gradientToColors: ['#0d6efd'],
+        gradientToColors: ['#FF8C00'],
         shadeIntensity: 1,
         type: 'vertical',
         opacityFrom: 0.8,
@@ -42,7 +42,7 @@ $(function () {
       },
     },
 
-    colors: ["#0d6efd"],
+    colors: ["#FF8C00"],
     tooltip: {
       theme: "dark",
       fixed: {
@@ -405,7 +405,7 @@ $(function () {
       type: 'gradient',
       gradient: {
         shade: 'dark',
-        gradientToColors: ['#6f42c1', '#0d6efd'],
+        gradientToColors: ['#6f42c1', '#FF8C00'],
         shadeIntensity: 1,
         type: 'vertical',
         //opacityFrom: 0.8,
@@ -420,7 +420,7 @@ $(function () {
         endingShape: "rounded"
       }
     },
-    colors: ["#6f42c1", '#0d6efd'],
+    colors: ["#6f42c1", '#FF8C00'],
     grid: {
       show: false,
       borderColor: 'rgba(0, 0, 0, 0.15)',
