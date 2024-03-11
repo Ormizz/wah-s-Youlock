@@ -19,13 +19,11 @@ class GCT14(models.Model):
         return self.date
     
 class GCT01(models.Model):
-    num_abonnement = models.CharField(max_length=100)
-    date_debut_abonnement = models.CharField(max_length=200)
-    date_fin_abonnement = models.CharField(max_length=200)
-
+    date_debut_abonnement = models.DateTimeField()
+    date_fin_abonnement = models.DateTimeField()
 
     def __str__(self):
-        return self.num_abonnement
+        return f"{self.date_debut_abonnement} - {self.date_fin_abonnement}"
     
 class GCT16(models.Model):
     nom_employe = models.CharField(max_length=100)
@@ -150,9 +148,15 @@ class GCT17(models.Model):
     
 class GCT03(models.Model):
     lib_appel_offre = models.CharField(max_length=100)
+    client = models.ForeignKey(GCT42, on_delete=models.CASCADE)
+    specialite = models.ForeignKey(GCT38, on_delete=models.CASCADE)
+    date = models.CharField(max_length=100)
+    # nbPosteDispo = models.CharField(max_length=100)
+    ageLimite = models.CharField(max_length=10)
+    missionPrincipale = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.lib_appel_offre
+        return {self.lib_appel_offre - self.date}
 
 class GCT21(models.Model):
     lib_genre = models.CharField(max_length=100)
@@ -252,17 +256,17 @@ class GCT51(models.Model):
     
 class GCT04(models.Model):
     candidat = models.ForeignKey(GCT07, on_delete=models.CASCADE)
-    situatiion_matrimoniale = models.ForeignKey(GCT37, on_delete=models.CASCADE)
-    date = models.CharField(max_length=100)
-    
+    situation_matrimoniale = models.ForeignKey(GCT37, on_delete=models.CASCADE)
+    date = models.DateTimeField()
+
     def __str__(self):
-        return f"Le candidat {self.candidat} est {self.situatiion_matrimoniale} à la date du {self.date}"
+        return f"Le candidat {self.candidat} est {self.situation_matrimoniale} à la date du {self.date}"
     
 class GCT05(models.Model):
     candidat = models.ForeignKey(GCT07, on_delete=models.CASCADE)
     specialite = models.ForeignKey(GCT38, on_delete=models.CASCADE)
-    date = models.CharField(max_length=100)
-    
+    date = models.DateTimeField()
+
     def __str__(self):
         return f"Le candidat {self.candidat} a acquis cette {self.specialite} à la date du {self.date}"
     
@@ -275,12 +279,10 @@ class GCT10(models.Model):
         return f"Le candidat {self.utilisateur} a {self.traitement} à la date du {self.date}"
     
 class GCT14(models.Model):
-    candidat = models.ForeignKey(GCT07, on_delete=models.CASCADE)
-    entretien = models.ForeignKey(GCT46, on_delete=models.CASCADE)
-    date = models.CharField(max_length=100)
-    
+    date = models.DateTimeField()
+
     def __str__(self):
-        return f"Le candidat {self.candidat} a eu un entretien {self.entretien} à la date du {self.date}"
+        return str(self.date)
     
 class GCT15(models.Model):
     candidat = models.ForeignKey(GCT07, on_delete=models.CASCADE)
@@ -289,14 +291,6 @@ class GCT15(models.Model):
     
     def __str__(self):
         return f"Le candidat {self.candidat} a fait {self.test} à la date du {self.date}"
-    
-class GCT20(models.Model):
-    utilisateur = models.ForeignKey(GCT42, on_delete=models.CASCADE)
-    appel_offre = models.ForeignKey(GCT03, on_delete=models.CASCADE)
-    date = models.CharField(max_length=100)
-    
-    def __str__(self):
-        return f"L'utilisateur {self.utilisateur} a fait {self.appel_offre} à la date du {self.date}"
     
 class GCT25(models.Model):
     candidat = models.ForeignKey(GCT07, on_delete=models.CASCADE)
@@ -310,12 +304,11 @@ class GCT19(models.Model):
     poste = models.ForeignKey(GCT32, on_delete=models.CASCADE)
     type_contrat = models.ForeignKey(GCT41, on_delete=models.CASCADE)
     entreprise = models.ForeignKey(GCT17, on_delete=models.CASCADE)
-    date_debut = models.CharField(max_length=100)
-    date_fin = models.CharField(max_length=100)
-    
-    
+    date_debut = models.DateTimeField()
+    date_fin = models.DateTimeField()
+
     def __str__(self):
-        return f"A la date du {self.date_debut} au {self.date_fin} le candidat a occupé le {self.poste} dans l'entreprise {self.entreprise} avec pour contrat {self.type_contrat} "
+        return f"A la date du {self.date_debut} au {self.date_fin} le candidat a occupé le {self.poste} dans l'entreprise {self.entreprise} avec pour contrat {self.type_contrat}"
     
 class GCT26(models.Model):
     candidat = models.ForeignKey(GCT07, on_delete=models.CASCADE)
@@ -324,11 +317,10 @@ class GCT26(models.Model):
     
     def __str__(self):
         return f"Le candidat {self.candidat} a acquis le poste {self.poste} à la date du {self.date}"
-    
+     
 class GCT12(models.Model):
     diplome = models.ForeignKey(GCT13, on_delete=models.CASCADE)
     etablissement =models.ForeignKey(GCT18, on_delete=models.CASCADE)
-    models.ForeignKey(GCT18, on_delete=models.CASCADE)
     date = models.CharField(max_length=100)
     
     def __str__(self):
