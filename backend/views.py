@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.http import HttpResponseRedirect
 from .models import *
 # Create your views here.
 
@@ -2047,4 +2048,18 @@ def gct35_delete(request, pk):
     else:
         return render(request, 'gct35_delete.html', {'gct35_item': gct35_item})
 
+def quiz_view(request):
+    questions = Question.objects.all()
+    return render(request, 'quiz.html', {'questions': questions})
+
+def submit_view(request):
+    score = 0
+    if request.method == 'POST':
+        for question_id, choice_id in request.POST.items():
+            if question_id != 'csrfmiddlewaretoken':
+                question = Question.objects.get(pk=question_id)
+                selected_choice = question.choice_set.get(pk=choice_id)
+                if selected_choice.is_correct:
+                    score += 1
+    return render(request, 'result.html', {'score': score})
 
