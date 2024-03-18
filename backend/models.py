@@ -353,3 +353,24 @@ class GCT44(models.Model):
     
     def __str__(self):
         return f"Le membre du personnel {self.candidat} a pour loisir {self.loisir} à la date {self.date}"
+
+class Question(models.Model):
+    TEXT = 'text'
+    AUDIO = 'audio'
+    IMAGE = 'image'
+
+    QUESTION_TYPES = [
+        (TEXT, 'Texte'),
+        (AUDIO, 'Audio'),
+        (IMAGE, 'Image'),
+    ]
+
+    text = models.CharField(max_length=255)
+    type = models.CharField(max_length=5, choices=QUESTION_TYPES, default=TEXT)
+    audio = models.FileField(upload_to='audio/', null=True, blank=True)
+    image = models.ImageField(upload_to='images/', null=True, blank=True)
+
+class Choice(models.Model):
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    text = models.CharField(max_length=255)
+    is_correct = models.BooleanField(default=False)

@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+</head>
+<body>
+    <!-- <form action="{% url 'submit' %}" method="post">
+        {% csrf_token %}
+        {% for question in questions %}
+            <h3>{{ question.text }}</h3>
+            {% for choice in question.choice_set.all %}
+                <input type="radio" name="{{ question.id }}" value="{{ choice.id }}">
+                {{ choice.text }}<br>
+            {% endfor %}
+        {% endfor %}
+        <button type="submit">Submit</button>
+    </form> -->
+    <form action="{% url 'submit' %}" method="post">
+        {% csrf_token %}
+            {% for question in questions %}
+            <h3>{{ question.text }}</h3>
+            {% if question.type == 'audio' %}
+                <audio controls>
+                    <source src="{{ question.audio.url }}" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio><br>
+            {% elif question.type == 'image' %}
+                <img src="{{ question.image.url }}" alt="Question Image"><br>
+            {% endif %}
+            {% for choice in question.choice_set.all %}
+                <input type="radio" name="{{ question.id }}" value="{{ choice.id }}">
+                {{ choice.text }}<br>
+            {% endfor %}
+            <br>
+        {% endfor %}
+    <button type="submit">Submit</button>
+</body>
+</html>
