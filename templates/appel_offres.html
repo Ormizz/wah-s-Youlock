@@ -73,7 +73,7 @@
       </div>
       <div class="quick-menu">  
         <nav class="nav flex-column gap-1">
-          <a class="nav-link" href="index.html"><i class="material-icons-outlined">home</i></a>
+          <a class="nav-link" href="{% url 'appel_offres' %}"><i class="material-icons-outlined">home</i></a>
          
         </nav>
       </div>
@@ -86,132 +86,215 @@
     <!--end mini sidebar-->
 
 
-  <!--start main wrapper-->
-  <main class="main-wrapper">
-    <div class="main-content">
- <!--breadcrumb-->
- <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-  <div class="breadcrumb-title pe-3">Admin</div>
-  <div class="ps-3">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb mb-0 p-0">
-        <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
-        </li>
-        <li class="breadcrumb-item active" aria-current="page">Acceuil</li>
-      </ol>
-    </nav>
+<!--start main wrapper-->
+<main class="main-wrapper">
+  <div class="main-content">
+    <h1>Liste des offres</h1>
+    <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+      <div class="breadcrumb-title pe-3">NOM DU PROJET</div>
+      <div class="ps-3">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb mb-0 p-0">
+            <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a></li>
+            <li class="breadcrumb-item active" aria-current="page">Accueil</li>
+          </ol>
+        </nav>
+      </div>
+      <div class="ms-auto">
+        <div class="btn-group">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#offreModal">Informations</button>
+          <button type="button" class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">
+            <span class="visually-hidden">Toggle Dropdown</span>
+          </button>
+          <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">
+            <a class="dropdown-item" href="javascript:;">Info</a>
+            <a class="dropdown-item" href="javascript:;">Info 2</a>
+            <a class="dropdown-item" href="javascript:;">Info 3</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="javascript:;">Plus d'info</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--end breadcrumb-->
+   <!-- Offres -->
+<div class="row row-cols-1 row-cols-lg-2 row-cols-xl-4">
+  <div class="col">
+    <div class="card mb-4">
+      <div class="card-body">
+        <h3 class="card-title mb-4">Expert comptable</h3>
+        <p class="card-text mb-4" style="max-height: 3.6em; line-height: 1.2em; overflow: hidden;">Résumé en détails de la mission principale et de toutes les tâches qu'il aura à effectuer dans un bref délai</p>
+        <button class="btn btn-primary w-100 raised" data-bs-toggle="modal" data-bs-target="#modalOffre">Voir plus</button>
+      </div>
+    </div>
   </div>
-  <div class="ms-auto">
-    <div class="btn-group">
-      <button type="button" class="btn btn-primary">Informations</button>
-      <button type="button" class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Toggle Dropdown</span>
-      </button>
-      <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">	<a class="dropdown-item" href="javascript:;">Info</a>
-        <a class="dropdown-item" href="javascript:;">Info 2</a>
-        <a class="dropdown-item" href="javascript:;">Info 3</a>
-        <div class="dropdown-divider"></div>	<a class="dropdown-item" href="javascript:;">Plus d'info</a>
+
+  <div class="col">
+    <div class="card mb-4">
+      <div class="card-body">
+        <h3 class="card-title mb-4">Juriste</h3>
+        <p class="card-text mb-4" style="max-height: 3.6em; line-height: 1.2em; overflow: hidden;">Résumé en détails de la mission principale et de toutes les tâches qu'il aura à effectuer dans un bref délai</p>
+        <button class="btn btn-primary w-100 raised" data-bs-toggle="modal" data-bs-target="#modalOffre">Voir plus</button>
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="col">
+    <div class="card mb-4">
+      <div class="card-body">
+        <h3 class="card-title mb-4">Bio medicale</h3>
+        <p class="card-text mb-4" style="max-height: 3.6em; line-height: 1.2em; overflow: hidden;">Résumé en détails de la mission principale et de toutes les tâches qu'il aura à effectuer dans un bref délai</p>
+        <button class="btn btn-primary w-100 raised" data-bs-toggle="modal" data-bs-target="#modalOffre">Voir plus</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card mb-4">
+      <div class="card-body">
+        <h3 class="card-title mb-4">Ingenieur IA</h3>
+        <p class="card-text mb-4" style="max-height: 3.6em; line-height: 1.2em; overflow: hidden;">Résumé en détails de la mission principale et de toutes les tâches qu'il aura à effectuer dans un bref délai</p>
+        <button class="btn btn-primary w-100 raised" data-bs-toggle="modal" data-bs-target="#modalOffre">Voir plus</button>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card mb-4">
+      <div class="card-body">
+        <h3 class="card-title mb-4">Expert comptable</h3>
+        <p class="card-text mb-4" style="max-height: 3.6em; line-height: 1.2em; overflow: hidden;">Résumé en détails de la mission principale et de toutes les tâches qu'il aura à effectuer dans un bref délai</p>
+        <button class="btn btn-primary w-100 raised" data-bs-toggle="modal" data-bs-target="#modalOffre">Voir plus</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card mb-4">
+      <div class="card-body">
+        <h3 class="card-title mb-4">Expert comptable</h3>
+        <p class="card-text mb-4" style="max-height: 3.6em; line-height: 1.2em; overflow: hidden;">Résumé en détails de la mission principale et de toutes les tâches qu'il aura à effectuer dans un bref délai</p>
+        <button class="btn btn-primary w-100 raised" data-bs-toggle="modal" data-bs-target="#modalOffre">Voir plus</button>
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="col">
+    <div class="card mb-4">
+      <div class="card-body">
+        <h3 class="card-title mb-4">Expert comptable</h3>
+        <p class="card-text mb-4" style="max-height: 3.6em; line-height: 1.2em; overflow: hidden;">Résumé en détails de la mission principale et de toutes les tâches qu'il aura à effectuer dans un bref délai</p>
+        <button class="btn btn-primary w-100 raised" data-bs-toggle="modal" data-bs-target="#modalOffre">Voir plus</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card mb-4">
+      <div class="card-body">
+        <h3 class="card-title mb-4">Expert comptable</h3>
+        <p class="card-text mb-4" style="max-height: 3.6em; line-height: 1.2em; overflow: hidden;">Résumé en détails de la mission principale et de toutes les tâches qu'il aura à effectuer dans un bref délai</p>
+        <button class="btn btn-primary w-100 raised" data-bs-toggle="modal" data-bs-target="#modalOffre">Voir plus</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modeles -->
+<div class="modal fade" id="modalOffre" tabindex="-1" aria-labelledby="modalOffreLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalOffreLabel">Offres</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Formulaire pour ajouter une offre -->
+        <div class="card-body p-6">
+          <form class="row g-3">
+            <div class="col-md-6">
+              <label for="input1" class="form-label">Nom de l'entreprise</label>
+              <input type="text" class="form-control" id="input1" placeholder="Nom de l'entreprise">
+            </div>
+            <div class="col-md-6">
+              <label for="input3" class="form-label">N d'appel offres</label>
+              <input type="text" class="form-control" id="input3" placeholder="N d'appel offres">
+            </div>
+            <div class="col-md-6">
+              <label for="input2" class="form-label">Date d'emission</label>
+              <input type="date" class="form-control" id="input2">
+            </div>
+            <div class="col-md-6">
+              <label for="input4" class="form-label">Domaine</label>
+              <input type="text" class="form-control" id="input4" placeholder="Domaine">
+            </div>
+            <div class="col-md-6">
+              <label for="input5" class="form-label">Délai de candidature</label>
+              <input type="date" class="form-control" id="input5">
+            </div>
+            <div class="col-md-6">
+              <label for="input6" class="form-label">Nombre de poste disponible</label>
+              <input type="text" class="form-control" id="input6" placeholder="Nombre de poste disponible">
+            </div>
+            <div class="col-md-12">
+              <h5 class="mb-6">Critère</h5>
+              <label for="input7" class="form-label">Limite d'âge</label>
+              <input type="text" class="form-control" id="input7" placeholder="Limite d'âge">
+            </div>
+            <div class="col-md-4">
+              <label for="input8" class="form-label">Mission principale</label>
+              <input type="text" class="form-control" id="input8" placeholder="Mission principale">
+            </div>
+            <div class="col-md-4">
+              <label for="input9" class="form-label">Activité principale</label>
+              <input type="text" class="form-control" id="input9" placeholder="Activité principale">
+            </div>
+            <div class="col-md-4">
+              <label for="input10" class="form-label">Compétence souhaitée</label>
+              <input type="text" class="form-control" id="input10" placeholder="Compétence souhaitée">
+            </div>
+            <div class="col-md-12">
+              <label for="input11" class="form-label">Assurance qualité</label>
+              <input type="text" class="form-control" id="input11" placeholder="Assurance qualité">
+            </div>
+            <div class="col-md-12">
+              <div class="d-md-flex d-grid align-items-center gap-3 mt-3 justify-content-center">
+                <button type="button" class="btn btn-primary px-4">Postuler</button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
 </div>
-<!--end breadcrumb-->
-<div class="row row-cols-1 row-cols-lg-2 row-cols-xl-4">
-  <div class="col">
-    <div class="card">
-      <img src="https://placehold.co/800x500" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Stay at home</h5>
-        <p class="card-text">Nam libero tempore, cum soluta nobis est
-          eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas
-          assumenda est, omnis dolor repellendus Temporibus autem
-          quibusdam et aut officiis debitis aut rerum necessitatibus saepe.</p>
 
-      </div>
-    </div>
+</div>  
   </div>
-  <div class="col">
-    <div class="card">
-      <img src="https://placehold.co/800x500" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Stay at home</h5>
-        <p class="card-text">Nam libero tempore, cum soluta nobis est
-          eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas
-          assumenda est, omnis dolor repellendus Temporibus autem
-          quibusdam et aut officiis debitis aut rerum necessitatibus saepe.</p>
+</main>
+<!--end main wrapper-->
 
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="https://placehold.co/800x500" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Stay at home</h5>
-        <p class="card-text">Nam libero tempore, cum soluta nobis est
-          eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas
-          assumenda est, omnis dolor repellendus Temporibus autem
-          quibusdam et aut officiis debitis aut rerum necessitatibus saepe.</p>
 
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="https://placehold.co/800x500" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Stay at home</h5>
-        <p class="card-text">Nam libero tempore, cum soluta nobis est
-          eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas
-          assumenda est, omnis dolor repellendus Temporibus autem
-          quibusdam et aut officiis debitis aut rerum necessitatibus saepe.</p>
 
-      </div>
-    </div>
-  </div>
 
-  <div class="col">
-    <div class="card">
-      <div class="card-body">
-        <img src="https://placehold.co/800x500" class="w-100 mb-4 rounded" alt="...">
-        <h5 class="card-title mb-4">Why do we use it?</h5>
-        <p class="card-text mb-4">Many desktop publishing packages and web page editors now use Lorem Ipsum.</p>
-        <button class="btn btn-primary w-100 raised">Add Payment</button>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <div class="card-body">
-        <img src="https://placehold.co/800x500" class="w-100 mb-4 rounded" alt="...">
-        <h5 class="card-title mb-4">Why do we use it?</h5>
-        <p class="card-text mb-4">Many desktop publishing packages and web page editors now use Lorem Ipsum.</p>
-        <button class="btn btn-danger w-100 raised">Add Payment</button>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <div class="card-body">
-        <img src="https://placehold.co/800x500" class="w-100 mb-4 rounded" alt="...">
-        <h5 class="card-title mb-4">Why do we use it?</h5>
-        <p class="card-text mb-4">Many desktop publishing packages and web page editors now use Lorem Ipsum.</p>
-        <button class="btn btn-success w-100 raised">Add Payment</button>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <div class="card-body">
-        <img src="https://placehold.co/800x500" class="w-100 mb-4 rounded" alt="...">
-        <h5 class="card-title mb-4">Why do we use it?</h5>
-        <p class="card-text mb-4">Many desktop publishing packages and web page editors now use Lorem Ipsum.</p>
-        <button class="btn btn-warning w-100 raised">Add Payment</button>
-      </div>
-    </div>
-  </div>
-</div><!--end row-->
-  </main>
-  <!--end main wrapper-->
+
+<script>
+  // Fonction pour remplir le modal avec les détails de l'offre
+  function remplirModal() {
+    // Données fictives pour simuler une offre
+    var nomEntreprise = "Entreprise XYZ";
+    var numAppelOffres = "123456";
+    var dateEmission = "2024-03-17"; // Exemple de date
+    
+    // Mettre à jour le contenu du modal avec les valeurs fictives
+    document.getElementById("nomEntreprise").textContent = nomEntreprise;
+    document.getElementById("numAppelOffres").textContent = numAppelOffres;
+    document.getElementById("dateEmission").textContent = dateEmission;
+    // Ajoutez d'autres valeurs d'offre fictives ici
+  }
+</script>
+
+
 
   
 

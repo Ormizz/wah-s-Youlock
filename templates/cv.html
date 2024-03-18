@@ -73,7 +73,7 @@
       </div>
       <div class="quick-menu">  
         <nav class="nav flex-column gap-1">
-          <a class="nav-link" href="index.html"><i class="material-icons-outlined">home</i></a>
+          <a class="nav-link" href="{% url 'appel_offres' %}"><i class="material-icons-outlined">home</i></a>
          
         </nav>
       </div>
@@ -90,6 +90,7 @@
   <main class="main-wrapper">
     <div class="main-content">
  <!--breadcrumb-->
+ <h1>Liste des CV</h1>
  <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
   <div class="breadcrumb-title pe-3">Admin</div>
   <div class="ps-3">
@@ -344,7 +345,7 @@
               <div class="menu-title">Acceuil</div>
             </a>
             <ul>
-              <li><a href="{% url 'ajouter_offres' %}"><i class="material-icons-outlined">arrow_right</i>Listes des Offres</a>
+              <li><a href="{% url 'appel_offres' %}"><i class="material-icons-outlined">arrow_right</i>Listes des Offres</a>
               </li>
               <li><a href="{% url 'ajouter_offres' %}"><i class="material-icons-outlined">arrow_right</i>Ajouter Offres</a>
               </li>

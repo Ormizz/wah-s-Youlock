@@ -420,7 +420,7 @@ def gct05_delete(request, pk):
     else:
         return render(request, 'gct05_delete.html', {'gct05_item': gct05_item})
 
-
+"""
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import GCT06
 
@@ -486,7 +486,7 @@ def gct06_delete(request, pk):
         return redirect('gct06_list')  # Redirect to the list after deletion
     else:
         return render(request, 'gct06_delete.html', {'gct06_item': gct06_item})
-
+"""
 
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import GCT07
@@ -1254,7 +1254,7 @@ def gct19_delete(request, pk):
     else:
         return render(request, 'gct19_delete.html', {'gct19_item': gct19_item})
 
-
+"""
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import GCT20
 
@@ -1301,7 +1301,7 @@ def gct20_delete(request, pk):
         return redirect('gct20_list')  # Redirect to the list after deletion
     else:
         return render(request, 'gct20_delete.html', {'gct20_item': gct20_item})
-
+"""
 
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import GCT21
@@ -1400,7 +1400,7 @@ def gct22_delete(request, pk):
         return render(request, 'gct22_delete.html', {'gct22_item': gct22_item})
 
 
-from django.shortcuts import render, get_object_or_404, redirect
+"""from django.shortcuts import render, get_object_or_404, redirect
 from .models import GCT23
 
 def gct23_list(request):
@@ -1447,7 +1447,7 @@ def gct23_delete(request, pk):
     else:
         return render(request, 'gct23_delete.html', {'gct23_item': gct23_item})
 
-
+"""
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import GCT24
 
@@ -1615,7 +1615,7 @@ def gct26_delete(request, pk):
     else:
         return render(request, 'gct26_delete.html', {'gct26_item': gct26_item})
 
-
+"""
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import GCT27
 
@@ -1711,7 +1711,7 @@ def gct28_delete(request, pk):
     else:
         return render(request, 'gct28_delete.html', {'gct28_item': gct28_item})
 
-
+"""
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import GCT29
 
