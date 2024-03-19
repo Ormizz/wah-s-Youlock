@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseRedirect
 from .models import *
+from .models import GCT44, GCT38, GCT42
 # Create your views here.
 
 
@@ -214,7 +215,7 @@ from .models import GCT03
 
 def gct03_list(request):
     gct03_items = GCT03.objects.all()
-    return render(request, 'gct03_list.html', {'gct03_items': gct03_items})
+    return render(request, 'ajouter_offres.html', {'gct03_items': gct03_items})
 
 def gct03_create(request):
     if request.method == 'POST':
@@ -237,7 +238,8 @@ def gct03_create(request):
         )
         new_gct03.save()
 
-        return redirect('gct03_list')  # Redirect to the list after creation
+        # return redirect('gct03_list')  # Redirect to the list after creation
+        return render(request, 'ajouter_offres.html')
     else:
         clients = GCT42.objects.all()
         specialites = GCT38.objects.all()
@@ -562,7 +564,7 @@ from .models import GCT08
 
 def gct08_list(request):
     gct08_items = GCT08.objects.all()
-    return render(request, 'gct08_list.html', {'gct08_items': gct08_items})
+    return render(request, 'client.html', {'gct08_items': gct08_items})
 
 def gct08_create(request):
     if request.method == 'POST':
@@ -1014,7 +1016,7 @@ from .models import GCT16
 
 def gct16_list(request):
     gct16_items = GCT16.objects.all()
-    return render(request, 'gct16_list.html', {'gct16_items': gct16_items})
+    return render(request, 'ajouter_personnel.html', {'gct16_items': gct16_items})
 
 def gct16_create(request):
     if request.method == 'POST':

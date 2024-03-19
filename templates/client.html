@@ -121,59 +121,69 @@
             <div class="card">
                 <div class="card-body p-4">
                     <h5 class="mb-4">Ajouter client</h5>
-                    <form class="row g-3">
-                        <div class="col-md-6">
-                            <label for="input1" class="form-label">Denomination social</label>
-                            <input type="text" class="form-control" id="input1" placeholder="Denomination social">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="input2" class="form-label">Adresse</label>
-                            <input type="text" class="form-control" id="input2" placeholder="Adresse">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="input3" class="form-label">n°Telephone</label>
-                            <input type="date" class="form-control" id="input3">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="input4" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="input4" placeholder="joseph@exemple.com">
-                        </div>
-                      
-                        <div class="col-12">
-                            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                                <button type="button" class="btn btn-primary px-4">VALIDER</button>
-                            </div>
-                        </div>
-                    </form>
+                    <form method="post" action="{% url 'gct08_create' %}" class="row g-3">
+                      {% csrf_token %}
+                      <div class="col-md-6">
+                          <label for="denomination_sociale" class="form-label">Denomination sociale</label>
+                          <input type="text" class="form-control" id="denomination_sociale" name="denomination_sociale" placeholder="Denomination sociale">
+                      </div>
+                      <div class="col-md-6">
+                          <label for="adresse" class="form-label">Adresse</label>
+                          <input type="text" class="form-control" id="adresse" name="adresse" placeholder="Adresse">
+                      </div>
+                      <div class="col-md-6">
+                          <label for="telephone" class="form-label">Numéro de téléphone</label>
+                          <input type="tel" class="form-control" id="telephone" name="telephone">
+                      </div>
+                      <div class="col-md-6">
+                          <label for="email" class="form-label">Email</label>
+                          <input type="email" class="form-control" id="email" name="email" placeholder="joseph@exemple.com">
+                      </div>
+                      <div class="col-12">
+                          <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                              <button type="submit" class="btn btn-primary px-4">VALIDER</button>
+                          </div>
+                      </div>
+                  </form>
+                  
                 </div>
             </div>
         </div>
     </div>
 </div>
 <div class="container my-100">
-    <div class="row justify-content-center">
-    <div class="col-lg-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Liste des clients</h5>
-          <table class="table">
-            <thead>
-              <tr>
-                
-                <th scope="col">Libellé</th>
-                <th scope="col">Modifier</th>
-                <th scope="col">Supprimer</th>
-              </tr>
-            </thead>
-            <tbody id="record-list">
-              <!-- Les enregistrements seront ajoutés ici dynamiquement -->
-            </tbody>
-          </table>
-        </div>
+  <div class="row justify-content-center">
+      <div class="col-lg-6">
+          <div class="card">
+              <div class="card-body">
+                  <h5 class="card-title">Liste des clients</h5>
+                  <table class="table">
+                      <thead>
+                          <tr>
+                              <th scope="col">Dénomination sociale</th>
+                              <th scope="col">Adresse</th>
+                              <th scope="col">Numéro de téléphone</th>
+                              <th scope="col">Email</th>
+                          </tr>
+                      </thead>
+                      <tbody id="record-list">
+                          {% for item in gct08_items %}
+                          <tr>
+                              <td>{{ item.denomination_sociale }}</td>
+                              <td>{{ item.adresse }}</td>
+                              <td>{{ item.telephone }}</td>
+                              <td>{{ item.email }}</td>
+                          </tr>
+                          {% endfor %}
+                      </tbody>
+                  </table>
+              </div>
+          </div>
       </div>
-    </div>
   </div>
 </div>
+
+
   <div class="row mt-4">
       <div class="col-lg-6">
           <div class="card">

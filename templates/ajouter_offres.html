@@ -121,68 +121,79 @@
     <div class="card">
       <div class="card-body p-6">
         <h5 class="mb-6">Ajouter offre</h5>
-        <form class="row g-3">
+        <form method="post" action="{% url 'gct03_create' %}" class="row g-3">
+          {% csrf_token %}
           <div class="col-md-4">
-            <label for="input1" class="form-label">Nom de l'entreprise</label>
-            <input type="text" class="form-control" id="input1" placeholder="First Name">
-          </div>
-        
-          <div class="col-md-4">
-            <label for="input3" class="form-label">N d'appel offres</label>
-            <input type="text" class="form-control" id="input3" placeholder="Phone">
-          </div>
-          <div class="col-md-4">
-            <label for="input2" class="form-label">Date d'emission</label>
-            <input type="text" class="form-control" id="input2" placeholder="Last Name">
-          </div>
-          <div class="col-md-4">
-            <label for="input4" class="form-label">Domaine</label>
-            <input type="text" class="form-control" id="input3" placeholder="Phone">
-          </div>
-          <div class="col-md-4">
-            <label for="input5" class="form-label">Délai de candidature</label>
-            <input type="date" class="form-control" id="input6">  
-          </div>
-          <div class="col-md-4">
-            <label for="input6" class="form-label">Nombre de poste disponible</label>
-            <input type="text" class="form-control" id="input3" placeholder="Phone">
-          </div>
-          <div class="col-md-12">
-            <h5 class="mb-6">Critère</h5>
-            <label for="input7" class="form-label">limite d'age</label>
-            <input type="text" class="form-control" id="input3" placeholder="Phone">
-            
-            </select>
+              <label for="lib_appel_offre" class="form-label">Nom de l'entreprise</label>
+              <input type="text" class="form-control" id="lib_appel_offre" name="lib_appel_offre" placeholder="Nom de l'entreprise">
           </div>
           
+          <div class="col-md-4">
+              <label for="client" class="form-label">N d'appel offres</label>
+              <select class="form-select" id="client" name="client">
+                  {% for client in clients %}
+                  <option value="{{ client.id }}">{{ client.nom }}</option>
+                  {% endfor %}
+              </select>
+          </div>
           
+          <div class="col-md-4">
+              <label for="date" class="form-label">Date d'émission</label>
+              <input type="date" class="form-control" id="date" name="date">
+          </div>
+          
+          <div class="col-md-4">
+              <label for="specialite" class="form-label">Domaine</label>
+              <select class="form-select" id="specialite" name="specialite">
+                  {% for specialite in specialites %}
+                  <option value="{{ specialite.id }}">{{ specialite.nom }}</option>
+                  {% endfor %}
+              </select>
+          </div>
+          
+          <div class="col-md-4">
+              <label for="age_limite" class="form-label">Délai de candidature</label>
+              <input type="date" class="form-control" id="age_limite" name="age_limite">  
+          </div>
+          
+          <div class="col-md-4">
+              <label for="nombre_poste" class="form-label">Nombre de poste disponible</label>
+              <input type="number" class="form-control" id="nombre_poste" name="nombre_poste">
+          </div>
           
           <div class="col-md-12">
-            <label for="input11" class="form-label">Mission principal</label>
-            <input type="text" class="form-control" id="input3" placeholder="Phone">
+              <h5 class="mb-6">Critère</h5>
+              <label for="limite_age" class="form-label">Limite d'âge</label>
+              <input type="text" class="form-control" id="limite_age" name="limite_age">
           </div>
-          <div class="col-md-4">
-            <label for="input11" class="form-label">Activité principal</label>
-            <input type="text" class="form-control" id="input3" placeholder="Phone">
-          </div>
-          <div class="col-md-4">
-            <label for="input11" class="form-label">Compétence souhaité</label>
-            <input type="text" class="form-control" id="input3" placeholder="Phone">
-          </div>
-          <div class="col-md-4">
-            <label for="input11" class="form-label">Assurance qualité</label>
-            <input type="text" class="form-control" id="input3" placeholder="Phone">
-          </div>
-          <div class="col-md-4">
-            
-          </div>
+          
           <div class="col-md-12">
-            <div class="d-md-flex d-grid align-items-center gap-3">
-              <button type="button" class="btn btn-primary px-4">Soumettre</button>
-              <button type="button" class="btn btn-light px-4">Effacer</button>
-            </div>
+              <label for="mission_principale" class="form-label">Mission principale</label>
+              <textarea class="form-control" id="mission_principale" name="mission_principale" rows="3"></textarea>
           </div>
-        </form>
+          
+          <div class="col-md-4">
+              <label for="activite_principale" class="form-label">Activité principale</label>
+              <input type="text" class="form-control" id="activite_principale" name="activite_principale">
+          </div>
+          
+          <div class="col-md-4">
+              <label for="competence_souhaite" class="form-label">Compétence souhaitée</label>
+              <input type="text" class="form-control" id="competence_souhaite" name="competence_souhaite">
+          </div>
+          
+          <div class="col-md-4">
+              <label for="assurance_qualite" class="form-label">Assurance qualité</label>
+              <input type="text" class="form-control" id="assurance_qualite" name="assurance_qualite">
+          </div>
+          
+          <div class="col-md-12">
+              <div class="d-md-flex d-grid align-items-center gap-3">
+                  <button type="submit" class="btn btn-primary px-4">Soumettre</button>
+                  <button type="reset" class="btn btn-light px-4">Effacer</button>
+              </div>
+          </div>
+      </form>      
       </div>
     </div>
   </div>
