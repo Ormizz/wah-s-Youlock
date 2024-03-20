@@ -121,53 +121,54 @@
             <div class="card">
                 <div class="card-body p-4">
                     <h5 class="mb-4">Ajouter Situation matrimoniale</h5>
-                    <form class="row g-3">
-                        <div class="col-md-6">
-                            <label for="input1" class="form-label">code</label>
-                            <input type="text" class="form-control" id="input1" placeholder="code">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="input2" class="form-label">Libellé </label>
-                            <input type="text" class="form-control" id="input2" placeholder="libellé">
-                        </div>
-                        
+                    <form class="row g-3" method="POST" action="{% url 'gct37_create' %}">
+                      {% csrf_token %}
+                      <div class="col-md-6">
+                          <label for="input1" class="form-label">Libellé</label>
+                          <input type="text" class="form-control" id="input1" name="lib_situation_matrimoniale" placeholder="Libellé">
+                      </div>
                       
-                        <div class="col-12">
-                            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                                <button type="button" class="btn btn-primary px-4">VALIDER</button>
-                            </div>
-                        </div>
-                    </form>
+                      <div class="col-12">
+                          <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                              <button type="submit" class="btn btn-primary px-4">VALIDER</button>
+                          </div>
+                      </div>
+                  </form>
+                  
                 </div>
             </div>
         </div>
     </div>
 </div>
- <div class="container my-100">
-    <div class="row justify-content-center">
-    <div class="col-lg-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Liste des situation matrimoniale</h5>
-          <table class="table">
-            <thead>
-              <tr>
-                
-                <th scope="col">code</th>
-                <th scope="col">libellé</th>
-                <th scope="col">Modifier</th>
-                <th scope="col">Supprimer</th>
-              </tr>
-            </thead>
-            <tbody id="record-list">
-              <!-- Les enregistrements seront ajoutés ici dynamiquement -->
-            </tbody>
-          </table>
-        </div>
+<!-- sit_matri.html -->
+<div class="container my-100">
+  <div class="row justify-content-center">
+      <div class="col-lg-6">
+          <div class="card">
+              <div class="card-body">
+                  <h5 class="card-title">Liste des situations matrimoniales</h5>
+                  <table class="table">
+                      <thead>
+                          <tr>
+                              <th scope="col">Code</th>
+                              <th scope="col">Libellé</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          {% for item in gct37_items %}
+                          <tr>
+                              <td>{{ item.id }}</td> <!-- Assuming 'id' is the primary key field -->
+                              <td>{{ item.lib_situation_matrimoniale }}</td>
+                          </tr>
+                          {% endfor %}
+                      </tbody>
+                  </table>
+              </div>
+          </div>
       </div>
-    </div>
   </div>
 </div>
+
     
 
          <div class="row">

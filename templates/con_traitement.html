@@ -121,27 +121,39 @@
           <div class="card">
               <div class="card-body p-4">
                   <h5 class="mb-4">Connecter Traitement </h5>
-                  <form class="row g-3">
-                      <div class="col-md-6">
-                          <label for="input1" class="form-label">Utilisateur</label>
-                          <input type="text" class="form-control" id="input1" placeholder="candidat">
-                      </div>
-                      
-                      <div class="col-md-6">
-                          <label for="input2" class="form-label">Traitement</label>
-                          <input type="text" class="form-control" id="input2" placeholder="Traitement">
-                      </div>
-                      <div class="col-md-6">
-                          <label for="input3" class="form-label">Date</label>
-                          <input type="date" class="form-control" id="input3" placeholder="Date">
-                      </div>
-                      
-                      <div class="col-md-12">
-                          <div class="d-md-flex d-grid align-items-center gap-3">
-                              <button type="button" class="btn btn-primary px-4">VALIDER</button>
-                          </div>
-                      </div>
-                  </form>
+                  <form class="row g-3" method="post" action="{% url 'gct10_create' %}">
+                    {% csrf_token %}
+                    <div class="col-md-6">
+                        <label for="input1" class="form-label">Utilisateur</label>
+                        <select class="form-select" id="input1" name="utilisateur">
+                            <option value="">Choisir un utilisateur</option>
+                            {% for utilisateur in utilisateurs %}
+                                <option value="{{ utilisateur.id }}">{{ utilisateur.nom }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <label for="input2" class="form-label">Traitement</label>
+                        <select class="form-select" id="input2" name="traitement">
+                            <option value="">Choisir un traitement</option>
+                            {% for traitement in traitements %}
+                                <option value="{{ traitement.id }}">{{ traitement.nom }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="input3" class="form-label">Date</label>
+                        <input type="date" class="form-control" id="input3" name="date" placeholder="Date">
+                    </div>
+                    
+                    <div class="col-md-12">
+                        <div class="d-md-flex d-grid align-items-center gap-3">
+                            <button type="submit" class="btn btn-primary px-4">VALIDER</button>
+                        </div>
+                    </div>
+                </form>
+                
               </div>
           </div>
       </div>

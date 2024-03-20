@@ -121,19 +121,19 @@
           <div class="card">
               <div class="card-body p-4">
                   <h5 class="mb-4">ajouter des Comptes</h5>
-                  <form class="row g-3">
-                      
-                      
-                      <div class="col-md-6">
-                          <label for="input6" class="form-label">libellé Comptes</label>
-                          <input type="text" class="form-control" id="input6" placeholder="Specialité">
-                      </div>
-                      <div class="col-md-12">
-                          <div class="d-md-flex d-grid align-items-center gap-3">
-                              <button type="button" class="btn btn-primary px-4">VALIDER</button>
-                          </div>
-                      </div>
-                  </form>
+                  <form class="row g-3" method="post" action="{% url 'gct09_create' %}">
+                    {% csrf_token %}
+                    <div class="col-md-6">
+                        <label for="lib_compte_comptable" class="form-label">Libellé Comptes</label>
+                        <input type="text" class="form-control" id="lib_compte_comptable" name="lib_compte_comptable" placeholder="Libellé Comptes">
+                    </div>
+                    <div class="col-md-12">
+                        <div class="d-md-flex d-grid align-items-center gap-3">
+                            <button type="submit" class="btn btn-primary px-4">Valider</button>
+                        </div>
+                    </div>
+                </form>
+                
               </div>
           </div>
       </div>
@@ -143,19 +143,22 @@
     <div class="col-lg-6">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Liste des Comptes comptable/h5>
+          <h5 class="card-title">Liste des Comptes comptable</h5>
           <table class="table">
             <thead>
               <tr>
                 
                 <th scope="col">Libellé</th>
-                <th scope="col">Modifier</th>
-                <th scope="col">Supprimer</th>
               </tr>
             </thead>
             <tbody id="record-list">
-              <!-- Les enregistrements seront ajoutés ici dynamiquement -->
-            </tbody>
+              {% for gct09_item in gct09_items %}
+                  <tr>
+                      <td>{{ gct09_item.lib_compte_comptable }}</td>
+                  </tr>
+              {% endfor %}
+          </tbody>
+          
           </table>
         </div>
       </div>

@@ -121,47 +121,57 @@
           <div class="card">
               <div class="card-body p-4">
                   <h5 class="mb-4">Ajouter Diplome</h5>
-                  <form class="row g-3">
-                      
-                     
-                      <div class="col-md-6">
-                          <label for="input6" class="form-label">libellé Diplome</label>
-                          <input type="text" class="form-control" id="input6" placeholder="Genre">
-                      </div>
-                      <div class="col-md-12">
-                          <div class="d-md-flex d-grid align-items-center gap-3">
-                              <button type="button" class="btn btn-primary px-4">VALIDER</button>
-                          </div>
-                      </div>
-                  </form>
+                  <form class="row g-3" action="{% url 'gct13_create' %}" method="post">
+                    {% csrf_token %}
+                    <div class="col-md-6">
+                        <label for="input6" class="form-label">Libellé Diplome</label>
+                        <input type="text" name="diplome" class="form-control" id="input6" placeholder="Libellé Diplome">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="input7" class="form-label">Libellé Etablissement</label>
+                        <input type="text" name="etablissement" class="form-control" id="input7" placeholder="Libellé Etablissement">
+                    </div>
+                    <div class="col-md-12">
+                        <label for="input8" class="form-label">Date</label>
+                        <input type="date" name="date" class="form-control" id="input8" placeholder="Date">
+                    </div>
+                    <div class="col-md-12">
+                        <div class="d-md-flex d-grid align-items-center gap-3">
+                            <button type="submit" class="btn btn-primary px-4">VALIDER</button>
+                        </div>
+                    </div>
+                </form>
+                
               </div>
           </div>
       </div>
   </div>
   <div class="container my-100">
     <div class="row justify-content-center">
-    <div class="col-lg-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Liste des Diplomes</h5>
-          <table class="table">
-            <thead>
-              <tr>
-                
-                <th scope="col">Libellé</th>
-                <th scope="col">Modifier</th>
-                <th scope="col">Supprimer</th>
-              </tr>
-            </thead>
-            <tbody id="record-list">
-              <!-- Les enregistrements seront ajoutés ici dynamiquement -->
-            </tbody>
-          </table>
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Liste des Diplômes</h5>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Libellé</th>
+                            </tr>
+                        </thead>
+                        <tbody id="record-list">
+                            {% for gct13_item in gct13_items %}
+                            <tr>
+                                <td>{{ gct13_item.libelle }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
+
   <div class="row mt-4">
       <div class="col-lg-6">
           <div class="card">

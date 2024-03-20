@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseRedirect
 from .models import *
 from .models import GCT44, GCT38, GCT42
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import GCT37
 # Create your views here.
 
 
@@ -568,13 +570,13 @@ def gct08_list(request):
 
 def gct08_create(request):
     if request.method == 'POST':
-        # Retrieve form data
+        # Récupérer les données du formulaire
         denomination_sociale = request.POST.get('denomination_sociale')
         adresse = request.POST.get('adresse')
         telephone = request.POST.get('telephone')
         email = request.POST.get('email')
 
-        # Create a new GCT08 object
+        # Créer un nouvel objet GCT08
         new_gct08 = GCT08.objects.create(
             denomination_sociale=denomination_sociale,
             adresse=adresse,
@@ -583,9 +585,12 @@ def gct08_create(request):
         )
         new_gct08.save()
 
-        return redirect('gct08_list')  # Redirect to the list after creation
+        # Rediriger vers la liste après la création
+        return redirect('gct08_list')  
     else:
-        return render(request, 'gct08_create.html')  # Display the creation form
+        clients = Client.objects.all()
+        return render(request, 'client.html', {'clients': clients})
+
 
 def gct08_update(request, pk):
     gct08_item = get_object_or_404(GCT08, pk=pk)
@@ -606,7 +611,7 @@ def gct08_update(request, pk):
 
         return redirect('gct08_list')  # Redirect to the list after modification
     else:
-        return render(request, 'gct08_update.html', {'gct08_item': gct08_item})
+        return render(request, 'client_update.html', {'gct08_item': gct08_item})
 
 def gct08_delete(request, pk):
     gct08_item = get_object_or_404(GCT08, pk=pk)
@@ -616,14 +621,14 @@ def gct08_delete(request, pk):
         gct08_item.delete()
         return redirect('gct08_list')  # Redirect to the list after deletion
     else:
-        return render(request, 'gct08_delete.html', {'gct08_item': gct08_item})
+        return render(request, 'client_delete.html', {'gct08_item': gct08_item})
 
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import GCT09
 
 def gct09_list(request):
     gct09_items = GCT09.objects.all()
-    return render(request, 'gct09_list.html', {'gct09_items': gct09_items})
+    return render(request, 'compte_comptable.html', {'gct09_items': gct09_items})
 
 def gct09_create(request):
     if request.method == 'POST':
@@ -638,7 +643,7 @@ def gct09_create(request):
 
         return redirect('gct09_list')  # Redirect to the list after creation
     else:
-        return render(request, 'gct09_create.html')  # Display the creation form
+        return render(request, 'compte_comptable.html.html')  # Display the creation form
 
 def gct09_update(request, pk):
     gct09_item = get_object_or_404(GCT09, pk=pk)
@@ -653,7 +658,7 @@ def gct09_update(request, pk):
 
         return redirect('gct09_list')  # Redirect to the list after modification
     else:
-        return render(request, 'gct09_update.html', {'gct09_item': gct09_item})
+        return render(request, 'compte_comptable.html.html', {'gct09_item': gct09_item})
 
 def gct09_delete(request, pk):
     gct09_item = get_object_or_404(GCT09, pk=pk)
@@ -663,7 +668,7 @@ def gct09_delete(request, pk):
         gct09_item.delete()
         return redirect('gct09_list')  # Redirect to the list after deletion
     else:
-        return render(request, 'gct09_delete.html', {'gct09_item': gct09_item})
+        return render(request, 'compte_comptable.html.html', {'gct09_item': gct09_item})
 
 
 from django.shortcuts import render, get_object_or_404, redirect
@@ -671,7 +676,7 @@ from .models import GCT10
 
 def gct10_list(request):
     gct10_items = GCT10.objects.all()
-    return render(request, 'gct10_list.html', {'gct10_items': gct10_items})
+    return render(request, 'con_traitement.html', {'gct10_items': gct10_items})
 
 def gct10_create(request):
     if request.method == 'POST':
@@ -692,7 +697,7 @@ def gct10_create(request):
     else:
         utilisateurs = GCT42.objects.all()
         traitements = GCT40.objects.all()
-        return render(request, 'gct10_create.html', {
+        return render(request, 'con_traitement.html', {
             'utilisateurs': utilisateurs,
             'traitements': traitements,
         })  # Display the creation form
@@ -716,7 +721,7 @@ def gct10_update(request, pk):
     else:
         utilisateurs = GCT42.objects.all()
         traitements = GCT40.objects.all()
-        return render(request, 'gct10_update.html', {
+        return render(request, 'con_traitement.html', {
             'gct10_item': gct10_item,
             'utilisateurs': utilisateurs,
             'traitements': traitements,
@@ -730,7 +735,7 @@ def gct10_delete(request, pk):
         gct10_item.delete()
         return redirect('gct10_list')  # Redirect to the list after deletion
     else:
-        return render(request, 'gct10_delete.html', {'gct10_item': gct10_item})
+        return render(request, 'con_traitement.html', {'gct10_item': gct10_item})
 
 
 from django.shortcuts import render, get_object_or_404, redirect
@@ -786,7 +791,7 @@ from .models import GCT12
 
 def gct12_list(request):
     gct12_items = GCT12.objects.all()
-    return render(request, 'gct12_list.html', {'gct12_items': gct12_items})
+    return render(request, 'cursus.html', {'gct12_items': gct12_items})
 
 def gct12_create(request):
     if request.method == 'POST':
@@ -807,7 +812,7 @@ def gct12_create(request):
     else:
         diplomes = GCT13.objects.all()
         etablissements = GCT18.objects.all()
-        return render(request, 'gct12_create.html', {
+        return render(request, 'cursus.html', {
             'diplomes': diplomes,
             'etablissements': etablissements,
         })  # Display the creation form
@@ -831,7 +836,7 @@ def gct12_update(request, pk):
     else:
         diplomes = GCT13.objects.all()
         etablissements = GCT18.objects.all()
-        return render(request, 'gct12_update.html', {
+        return render(request, 'cursus.html', {
             'gct12_item': gct12_item,
             'diplomes': diplomes,
             'etablissements': etablissements,
@@ -845,7 +850,7 @@ def gct12_delete(request, pk):
         gct12_item.delete()
         return redirect('gct12_list')  # Redirect to the list after deletion
     else:
-        return render(request, 'gct12_delete.html', {'gct12_item': gct12_item})
+        return render(request, 'cursus.html', {'gct12_item': gct12_item})
 
 
 from django.shortcuts import render, get_object_or_404, redirect
@@ -1016,7 +1021,7 @@ from .models import GCT16
 
 def gct16_list(request):
     gct16_items = GCT16.objects.all()
-    return render(request, 'ajouter_personnel.html', {'gct16_items': gct16_items})
+    return render(request, 'liste_employe.html', {'gct16_items': gct16_items})
 
 def gct16_create(request):
     if request.method == 'POST':
@@ -1041,7 +1046,7 @@ def gct16_create(request):
 
         return redirect('gct16_list')  # Redirect to the list after creation
     else:
-        return render(request, 'gct16_create.html')  # Display the creation form
+        return render(request, 'ajouter_employe.html')  # Display the creation form
 
 def gct16_update(request, pk):
     gct16_item = get_object_or_404(GCT16, pk=pk)
@@ -1066,7 +1071,7 @@ def gct16_update(request, pk):
 
         return redirect('gct16_list')  # Redirect to the list after modification
     else:
-        return render(request, 'gct16_update.html', {'gct16_item': gct16_item})
+        return render(request, 'liste_employe.html', {'gct16_item': gct16_item})
 
 def gct16_delete(request, pk):
     gct16_item = get_object_or_404(GCT16, pk=pk)
@@ -1076,7 +1081,7 @@ def gct16_delete(request, pk):
         gct16_item.delete()
         return redirect('gct16_list')  # Redirect to the list after deletion
     else:
-        return render(request, 'gct16_delete.html', {'gct16_item': gct16_item})
+        return render(request, 'liste_employe.html', {'gct16_item': gct16_item})
 
 
 from django.shortcuts import render, get_object_or_404, redirect
@@ -1084,7 +1089,7 @@ from .models import GCT17
 
 def gct17_list(request):
     gct17_items = GCT17.objects.all()
-    return render(request, 'gct17_list.html', {'gct17_items': gct17_items})
+    return render(request, 'entreprise.html', {'gct17_items': gct17_items})
 
 def gct17_create(request):
     if request.method == 'POST':
@@ -1101,7 +1106,7 @@ def gct17_create(request):
 
         return redirect('gct17_list')  # Redirect to the list after creation
     else:
-        return render(request, 'gct17_create.html')  # Display the creation form
+        return render(request, 'entreprise.html')  # Display the creation form
 
 def gct17_update(request, pk):
     gct17_item = get_object_or_404(GCT17, pk=pk)
@@ -1118,7 +1123,7 @@ def gct17_update(request, pk):
 
         return redirect('gct17_list')  # Redirect to the list after modification
     else:
-        return render(request, 'gct17_update.html', {'gct17_item': gct17_item})
+        return render(request, 'entreprise.html', {'gct17_item': gct17_item})
 
 def gct17_delete(request, pk):
     gct17_item = get_object_or_404(GCT17, pk=pk)
@@ -1128,7 +1133,7 @@ def gct17_delete(request, pk):
         gct17_item.delete()
         return redirect('gct17_list')  # Redirect to the list after deletion
     else:
-        return render(request, 'gct17_delete.html', {'gct17_item': gct17_item})
+        return render(request, 'entreprise.html', {'gct17_item': gct17_item})
 
 
 from django.shortcuts import render, get_object_or_404, redirect
@@ -1184,7 +1189,7 @@ from .models import GCT19, GCT32, GCT41, GCT17
 
 def gct19_list(request):
     gct19_items = GCT19.objects.all()
-    return render(request, 'gct19_list.html', {'gct19_items': gct19_items})
+    return render(request, 'experiences.html', {'gct19_items': gct19_items})
 
 def gct19_create(request):
     if request.method == 'POST':
@@ -1210,7 +1215,7 @@ def gct19_create(request):
         postes = GCT32.objects.all()
         types_contrat = GCT41.objects.all()
         entreprises = GCT17.objects.all()
-        return render(request, 'gct19_create.html', {
+        return render(request, 'experiences.html', {
             'postes': postes,
             'types_contrat': types_contrat,
             'entreprises': entreprises,
@@ -1240,7 +1245,7 @@ def gct19_update(request, pk):
         postes = GCT32.objects.all()
         types_contrat = GCT41.objects.all()
         entreprises = GCT17.objects.all()
-        return render(request, 'gct19_update.html', {
+        return render(request, 'experiences.html', {
             'gct19_item': gct19_item,
             'postes': postes,
             'types_contrat': types_contrat,
@@ -1255,7 +1260,7 @@ def gct19_delete(request, pk):
         gct19_item.delete()
         return redirect('gct19_list')  # Redirect to the list after deletion
     else:
-        return render(request, 'gct19_delete.html', {'gct19_item': gct19_item})
+        return render(request, 'experiences.html', {'gct19_item': gct19_item})
 
 """
 from django.shortcuts import render, get_object_or_404, redirect
@@ -1311,7 +1316,7 @@ from .models import GCT21
 
 def gct21_list(request):
     gct21_items = GCT21.objects.all()
-    return render(request, 'gct21_list.html', {'gct21_items': gct21_items})
+    return render(request, 'genre.html', {'gct21_items': gct21_items})
 
 def gct21_create(request):
     if request.method == 'POST':
@@ -1326,7 +1331,7 @@ def gct21_create(request):
 
         return redirect('gct21_list')  # Redirect to the list after creation
     else:
-        return render(request, 'gct21_create.html')  # Display the creation form
+        return render(request, 'genre.html')  # Display the creation form
 
 def gct21_update(request, pk):
     gct21_item = get_object_or_404(GCT21, pk=pk)
@@ -1341,7 +1346,7 @@ def gct21_update(request, pk):
 
         return redirect('gct21_list')  # Redirect to the list after modification
     else:
-        return render(request, 'gct21_update.html', {'gct21_item': gct21_item})
+        return render(request, 'genre.html', {'gct21_item': gct21_item})
 
 def gct21_delete(request, pk):
     gct21_item = get_object_or_404(GCT21, pk=pk)
@@ -1351,7 +1356,7 @@ def gct21_delete(request, pk):
         gct21_item.delete()
         return redirect('gct21_list')  # Redirect to the list after deletion
     else:
-        return render(request, 'gct21_delete.html', {'gct21_item': gct21_item})
+        return render(request, 'genre.html', {'gct21_item': gct21_item})
 
 
 
@@ -1720,22 +1725,22 @@ from .models import GCT29
 
 def gct29_list(request):
     gct29_items = GCT29.objects.all()
-    return render(request, 'gct29_list.html', {'gct29_items': gct29_items})
+    return render(request, 'pays.html', {'gct29_items': gct29_items})
 
 def gct29_create(request):
     if request.method == 'POST':
         # Retrieve form data
-        # Add your form fields here
-
+        lib_pays = request.POST.get('lib_pays')  # Assurez-vous que 'lib_pays' est le nom de votre champ dans le formulaire
+        
         # Create a new GCT29 object
         new_gct29 = GCT29.objects.create(
-            # Set your model fields with form data
+           lib_pays=lib_pays,
         )
         new_gct29.save()
 
         return redirect('gct29_list')  # Redirect to the list after creation
     else:
-        return render(request, 'gct29_create.html')  # Display the creation form
+        return render(request, 'pays.html')  # Display the creation form
 
 def gct29_update(request, pk):
     gct29_item = get_object_or_404(GCT29, pk=pk)
@@ -1750,7 +1755,7 @@ def gct29_update(request, pk):
 
         return redirect('gct29_list')  # Redirect to the list after modification
     else:
-        return render(request, 'gct29_update.html', {'gct29_item': gct29_item})
+        return render(request, 'pays.html', {'gct29_item': gct29_item})
 
 def gct29_delete(request, pk):
     gct29_item = get_object_or_404(GCT29, pk=pk)
@@ -1760,7 +1765,7 @@ def gct29_delete(request, pk):
         gct29_item.delete()
         return redirect('gct29_list')  # Redirect to the list after deletion
     else:
-        return render(request, 'gct29_delete.html', {'gct29_item': gct29_item})
+        return render(request, 'pays.html', {'gct29_item': gct29_item})
 
 
 from django.shortcuts import render, get_object_or_404, redirect
@@ -1768,7 +1773,7 @@ from .models import GCT30
 
 def gct30_list(request):
     gct30_items = GCT30.objects.all()
-    return render(request, 'gct30_list.html', {'gct30_items': gct30_items})
+    return render(request, 'pays.html', {'gct30_items': gct30_items})
 
 def gct30_create(request):
     if request.method == 'POST':
@@ -1864,39 +1869,33 @@ from .models import GCT32
 
 def gct32_list(request):
     gct32_items = GCT32.objects.all()
-    return render(request, 'gct32_list.html', {'gct32_items': gct32_items})
+    return render(request, 'poste.html', {'gct32_items': gct32_items})
 
 def gct32_create(request):
     if request.method == 'POST':
-        # Retrieve form data
-        # Add your form fields here
-
-        # Create a new GCT32 object
-        new_gct32 = GCT32.objects.create(
-            # Set your model fields with form data
-        )
-        new_gct32.save()
-
-        return redirect('gct32_list')  # Redirect to the list after creation
+        lib_poste = request.POST.get('lib_poste')
+        GCT32.objects.create(lib_poste=lib_poste)
+        return redirect('gct32_list')
     else:
-        return render(request, 'gct32_create.html')  # Display the creation form
+        return render(request, 'poste.html')
 
 def gct32_update(request, pk):
     gct32_item = get_object_or_404(GCT32, pk=pk)
-
     if request.method == 'POST':
-        # Retrieve form data
-        # Add your form fields here
-
-        # Update the GCT32 object
-        # Set your model fields with form data
-        new_gct32.save()
-
-        return redirect('gct32_list')  # Redirect to the list after modification
+        lib_poste = request.POST.get('lib_poste')
+        gct32_item.lib_poste = lib_poste
+        gct32_item.save()
+        return redirect('gct32_list')
     else:
-        return render(request, 'gct32_update.html', {'gct32_item': gct32_item})
+        return render(request, 'poste.html', {'gct32_item': gct32_item})
 
 def gct32_delete(request, pk):
+    gct32_item = get_object_or_404(GCT32, pk=pk)
+    if request.method == 'POST':
+        gct32_item.delete()
+        return redirect('gct32_list')
+    else:
+        return render(request, 'poste.html', {'gct32_item': gct32_item})
     gct32_item = get_object_or_404(GCT32, pk=pk)
 
     if request.method == 'POST':
@@ -1958,41 +1957,39 @@ def gct33_delete(request, pk):
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import GCT34
 
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import GCT34
+
 def gct34_list(request):
     gct34_items = GCT34.objects.all()
-    return render(request, 'gct34_list.html', {'gct34_items': gct34_items})
+    return render(request, 'profession.html', {'gct34_items': gct34_items})
 
 def gct34_create(request):
     if request.method == 'POST':
-        # Retrieve form data
-        # Add your form fields here
-
-        # Create a new GCT34 object
-        new_gct34 = GCT34.objects.create(
-            # Set your model fields with form data
-        )
-        new_gct34.save()
-
-        return redirect('gct34_list')  # Redirect to the list after creation
+        lib_profession = request.POST.get('lib_profession')  # Récupérer les données du formulaire
+        new_gct34 = GCT34.objects.create(lib_profession=lib_profession)  # Créer un nouvel objet GCT34
+        return redirect('gct34_list')  # Rediriger vers la liste après la création
     else:
-        return render(request, 'gct34_create.html')  # Display the creation form
+        return render(request, 'gct34_create.html')  # Afficher le formulaire de création
 
 def gct34_update(request, pk):
-    gct34_item = get_object_or_404(GCT34, pk=pk)
-
+    gct34_item = get_object_or_404(GCT34, pk=pk)  # Récupérer l'objet à mettre à jour
     if request.method == 'POST':
-        # Retrieve form data
-        # Add your form fields here
-
-        # Update the GCT34 object
-        # Set your model fields with form data
-        gct34_item.save()
-
-        return redirect('gct34_list')  # Redirect to the list after modification
+        lib_profession = request.POST.get('lib_profession')  # Récupérer les données du formulaire
+        gct34_item.lib_profession = lib_profession  # Mettre à jour les champs de l'objet
+        gct34_item.save()  # Sauvegarder les modifications
+        return redirect('gct34_list')  # Rediriger vers la liste après la modification
     else:
-        return render(request, 'gct34_update.html', {'gct34_item': gct34_item})
+        return render(request, 'profession.html', {'gct34_item': gct34_item})  # Afficher le formulaire de mise à jour avec les données de l'objet
 
 def gct34_delete(request, pk):
+    gct34_item = get_object_or_404(GCT34, pk=pk)  # Récupérer l'objet à supprimer
+    if request.method == 'POST':
+        gct34_item.delete()  # Supprimer l'objet
+        return redirect('gct34_list')  # Rediriger vers la liste après la suppression
+    else:
+        return render(request, 'profession.html', {'gct34_item': gct34_item})  # Afficher la page de confirmation de suppression
+
     gct34_item = get_object_or_404(GCT34, pk=pk)
 
     if request.method == 'POST':
@@ -2000,7 +1997,7 @@ def gct34_delete(request, pk):
         gct34_item.delete()
         return redirect('gct34_list')  # Redirect to the list after deletion
     else:
-        return render(request, 'gct34_delete.html', {'gct34_item': gct34_item})
+        return render(request, 'profession.html', {'gct34_item': gct34_item})
 
 
 from django.shortcuts import render, get_object_or_404, redirect
@@ -2049,6 +2046,101 @@ def gct35_delete(request, pk):
         return redirect('gct35_list')  # Redirect to the list after deletion
     else:
         return render(request, 'gct35_delete.html', {'gct35_item': gct35_item})
+
+
+from django.shortcuts import render, get_object_or_404, redirect
+from .models import GCT37
+def gct37_list(request):
+    gct37_items = GCT37.objects.all()
+    return render(request, 'sit_matri.html', {'gct37_items': gct37_items})
+
+def gct37_create(request):
+    if request.method == 'POST':
+        # Retrieve form data
+        lib_situation_matrimoniale = request.POST.get('lib_situation_matrimoniale')  # Assurez-vous que 'lib_situation_matrimoniale' est le nom de votre champ dans le formulaire
+        
+        # Create a new GCT37 object
+        new_gct37 = GCT37.objects.create(
+           lib_situation_matrimoniale=lib_situation_matrimoniale,
+        )
+        new_gct37.save()
+
+        return redirect('gct37_list')  # Redirect to the list after creation
+    else:
+        return render(request, 'sit_matri.html')  # Display the creation form
+
+def gct37_update(request, pk):
+    gct37_item = get_object_or_404(GCT37, pk=pk)
+
+    if request.method == 'POST':
+        # Retrieve form data
+        lib_situation_matrimoniale = request.POST.get('lib_situation_matrimoniale')  # Assurez-vous que 'lib_situation_matrimoniale' est le nom de votre champ dans le formulaire
+        
+        # Update the GCT37 object
+        gct37_item.lib_situation_matrimoniale = lib_situation_matrimoniale
+        gct37_item.save()
+
+        return redirect('gct37_list')  # Redirect to the list after modification
+    else:
+        return render(request, 'sit_matri.html', {'gct37_item': gct37_item})
+
+def gct37_delete(request, pk):
+    gct37_item = get_object_or_404(GCT37, pk=pk)
+    if request.method == 'POST':
+        gct37_item.delete()
+        return redirect('gct37_list')
+    return render(request, 'sit_matri.html', {'gct37_item': gct37_item})
+
+    gct37_item = get_object_or_404(GCT37, pk=pk)
+    if request.method == 'POST':
+        gct37_item.delete()
+        return redirect('gct37_list')
+    return render(request, 'sit_matri.html', {'gct37_item': gct37_item})
+
+
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import GCT38
+
+def gct38_list(request):
+    gct38_items = GCT38.objects.all()
+    return render(request, 'specialite.html', {'gct38_items': gct38_items})
+
+def gct38_create(request):
+    if request.method == 'POST':
+        # Retrieve form data
+        lib_specialite = request.POST.get('lib_specialite')
+        
+        # Create a new GCT38 object
+        new_gct38 = GCT38.objects.create(
+           lib_specialite=lib_specialite,
+        )
+        new_gct38.save()
+
+        return redirect('gct38_list')  # Redirect to the list after creation
+    else:
+        return render(request, 'specialite.html')  # Display the creation form
+
+def gct38_update(request, pk):
+    gct38_item = get_object_or_404(GCT38, pk=pk)
+
+    if request.method == 'POST':
+        # Retrieve form data
+        lib_specialite = request.POST.get('lib_specialite')
+        
+        # Update the GCT38 object
+        gct38_item.lib_specialite = lib_specialite
+        gct38_item.save()
+
+        return redirect('gct38_list')  # Redirect to the list after modification
+    else:
+        return render(request, 'specialite.html', {'gct38_item': gct38_item})
+
+def gct38_delete(request, pk):
+    gct38_item = get_object_or_404(GCT38, pk=pk)
+    if request.method == 'POST':
+        gct38_item.delete()
+        return redirect('gct38_list')
+    return render(request, 'specialite.html', {'gct38_item': gct38_item})
 
 def quiz_view(request):
     questions = Question.objects.all()

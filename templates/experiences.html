@@ -121,66 +121,72 @@
           <div class="card">
               <div class="card-body p-4">
                   <h5 class="mb-4">EXPERIENCES</h5>
-                  <form class="row g-3">
-                      
-                      <div class="col-md-6">
-                          <label for="input5" class="form-label">Poste </label>
-                          <input type="text" class="form-control" id="input5" placeholder="Poste">
-                      </div>
-                      <div class="col-md-6">
-                          <label for="input6" class="form-label">Type de Contrat </label>
-                          <input type="text" class="form-control" id="input6" placeholder="type de Contrat">
-                      </div>
-                      <div class="col-md-6">
-                          <label for="input6" class="form-label">Entreprise </label>
-                          <input type="text" class="form-control" id="input6" placeholder="Entreprise">
-                      </div>
-                      <div class="col-md-4">
-                          <label for="input2" class="form-label">Date de Debut</label>
-                          <input type="date" class="form-control" id="input2" placeholder="date de Debut">
-                      </div>
-                      <div class="col-md-4">
-                          <label for="input2" class="form-label">Date de Fin</label>
-                          <input type="date" class="form-control" id="input2" placeholder="date de Fin">
-                      </div>
-                      
-                      <div class="col-md-12">
-                          <div class="d-md-flex d-grid align-items-center gap-3">
-                              <button type="button" class="btn btn-primary px-4">VALIDER</button>
-                          </div>
-                      </div>
-                  </form>
+                  <form class="row g-3" method="POST" action="{% url 'gct19_create' %}">
+                    <div class="col-md-6">
+                        <label for="input5" class="form-label">Poste</label>
+                        <input type="text" name="poste" class="form-control" id="input5" placeholder="Poste">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="input6" class="form-label">Type de Contrat</label>
+                        <input type="text" name="type_contrat" class="form-control" id="input6" placeholder="Type de Contrat">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="input7" class="form-label">Entreprise</label>
+                        <input type="text" name="entreprise" class="form-control" id="input7" placeholder="Entreprise">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="input8" class="form-label">Date de Début</label>
+                        <input type="date" name="date_debut" class="form-control" id="input8" placeholder="Date de Début">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="input9" class="form-label">Date de Fin</label>
+                        <input type="date" name="date_fin" class="form-control" id="input9" placeholder="Date de Fin">
+                    </div>
+                    <div class="col-md-12">
+                        <div class="d-md-flex d-grid align-items-center gap-3">
+                            <button type="submit" class="btn btn-primary px-4">VALIDER</button>
+                        </div>
+                    </div>
+                </form>
+                
               </div>
           </div>
       </div>
   </div>
   <div class="container my-100">
     <div class="row justify-content-center">
-    <div class="col-lg-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Liste des experiences</h5>
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Nom candidat</th>
-                <th scope="col">Poste</th>
-                <th scope="col">Entreprise</th>
-                <th scope="col">Date Debut</th>
-                <th scope="col">Date fin</th>
-                <th scope="col">Modifier</th>
-                <th scope="col">Supprimer</th>
-              </tr>
-            </thead>
-            <tbody id="record-list">
-              <!-- Les enregistrements seront ajoutés ici dynamiquement -->
-            </tbody>
-          </table>
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Liste des expériences</h5>
+                    <table class="table">
+                        <thead>
+                            <tr>
+
+                                <th scope="col">Poste</th>
+                                <th scope="col">Entreprise</th>
+                                <th scope="col">Date Debut</th>
+                                <th scope="col">Date fin</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in gct19_items %}
+                            <tr>
+
+                                <td>{{ item.poste }}</td>
+                                <td>{{ item.entreprise }}</td>
+                                <td>{{ item.date_debut }}</td>
+                                <td>{{ item.date_fin }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
+
   <div class="row mt-4">
       <div class="col-lg-6">
           <div class="card">

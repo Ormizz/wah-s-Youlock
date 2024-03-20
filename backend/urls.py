@@ -25,8 +25,8 @@ urlpatterns = [
     # GCT08
     path('gct08/', views.gct08_list, name='gct08_list'),
     path('gct08/create/', views.gct08_create, name='gct08_create'),
-    # path('gct08/<int:pk>/update/', views.gct08_update, name='gct08_update'),
-    # path('gct08/<int:pk>/delete/', views.gct08_delete, name='gct08_delete'),
+    path('gct08/<int:pk>/update/', views.gct08_update, name='gct08_update'),
+    path('gct08/<int:pk>/delete/', views.gct08_delete, name='gct08_delete'),
 
 # GCT14
     path('gct14/', views.gct14_list, name='gct14_list'),
@@ -125,10 +125,10 @@ urlpatterns = [
     path('gct13/<int:pk>/delete/', views.gct13_delete, name='gct13_delete'),
 
 # GCT38
-    # path('gct38/', views.gct38_list, name='gct38_list'),
-    # path('gct38/create/', views.gct38_create, name='gct38_create'),
-    # path('gct38/<int:pk>/update/', views.gct38_update, name='gct38_update'),
-    # path('gct38/<int:pk>/delete/', views.gct38_delete, name='gct38_delete'),
+   path('gct38/', views.gct38_list, name='gct38_list'),
+   path('gct38/create/', views.gct38_create, name='gct38_create'),
+    path('gct38/<int:pk>/update/', views.gct38_update, name='gct38_update'),
+    path('gct38/<int:pk>/delete/', views.gct38_delete, name='gct38_delete'),
 
 # GCT17
     path('gct17/', views.gct17_list, name='gct17_list'),
@@ -184,11 +184,11 @@ urlpatterns = [
     # path('gct45/<int:pk>/update/', views.gct45_update, name='gct45_update'),
     # path('gct45/<int:pk>/delete/', views.gct45_delete, name='gct45_delete'),
 
-# GCT37
-    # path('gct37/', views.gct37_list, name='gct37_list'),
-    # path('gct37/create/', views.gct37_create, name='gct37_create'),
-    # path('gct37/<int:pk>/update/', views.gct37_update, name='gct37_update'),
-    # path('gct37/<int:pk>/delete/', views.gct37_delete, name='gct37_delete'),
+#GCT37
+    path('gct37/', views.gct37_list, name='gct37_list'),
+   path('gct37/create/', views.gct37_create, name='gct37_create'),
+   path('gct37/<int:pk>/update/', views.gct37_update, name='gct37_update'),
+  path('gct37/<int:pk>/delete/', views.gct37_delete, name='gct37_delete'),
 
 # GCT52
     # path('gct52/', views.gct52_list, name='gct52_list'),

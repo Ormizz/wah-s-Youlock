@@ -4,10 +4,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Acceuil | Ajouter Personnel</title>
+  <title>Acceuil | Liste employe</title>
   {% load static %}
   <!--favicon-->
-	<link rel="icon" href="{% static 'assets/images/fav.ico' %}" type="image/png">
+  <link rel="icon" href="{% static 'assets/images/fav.ico' %}" type="image/png">
 
   <!--plugins-->
   <link href="{% static 'assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css' %}" rel="stylesheet">
@@ -90,7 +90,7 @@
   <main class="main-wrapper">
     <div class="main-content">
  <!--breadcrumb-->
- <h1>Ajouter personnels</h1>
+ <h1>Liste des Employes </h1>
  <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
   <div class="breadcrumb-title pe-3">Admin</div>
   <div class="ps-3">
@@ -116,73 +116,61 @@
   </div>
 </div>
 <!--end breadcrumb-->
-      <div class="container my-5">
-    <div class="row justify-content-center">
-        <div class="col-lg-6">
-            <div class="card">
-                <div class="card-body p-4">
-                    <h5 class="mb-4">Ajouter Personnel</h5>
-                    <form method="post" action="{% url 'gct16_create' %}" class="row g-3">
-                      {% csrf_token %}
-                      <div class="col-md-6">
-                          <label for="nom_employe" class="form-label">Nom de l'employé</label>
-                          <input type="text" class="form-control" id="nom_employe" name="nom_employe" placeholder="Nom">
-                      </div>
-                      <div class="col-md-6">
-                          <label for="prenom_employe" class="form-label">Prénom de l'employé</label>
-                          <input type="text" class="form-control" id="prenom_employe" name="prenom_employe" placeholder="Prénom">
-                      </div>
-                      <div class="col-md-6">
-                          <label for="date_naissance" class="form-label">Date de Naissance</label>
-                          <input type="date" class="form-control" id="date_naissance" name="date_naissance">
-                      </div>
-                      <div class="col-md-6">
-                          <label for="email" class="form-label">Email</label>
-                          <input type="email" class="form-control" id="email" name="email" placeholder="joseph@exemple.com">
-                      </div>
-                      <div class="col-md-6">
-                          <label for="adresse" class="form-label">Adresse</label>
-                          <input type="text" class="form-control" id="adresse" name="adresse" placeholder="Adresse complète">
-                      </div>
-                      <div class="col-md-6">
-                          <label for="telephone" class="form-label">N° tel</label>
-                          <input type="tel" class="form-control" id="telephone" name="telephone" placeholder="Numéro de téléphone">
-                      </div>
-                      <div class="col-12">
-                          <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                              <button type="submit" class="btn btn-primary px-4">Soumettre</button>
-                              <button type="reset" class="btn btn-light px-4">Effacer</button>
-                          </div>
-                      </div>
-                  </form>                  
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
+
+<div class="row g-3">
+  <div class="col-auto">
     
-
-         <div class="row">
-          <div class="col-12 col-lg-12">
-						
-
-						<div class="card">
-							
-							</div>
-
-
-							<div class="card">
-								
-								</div>  
-					  </div>
-
-
-         </div><!--end row-->
-
-
+  </div>
+ 
+  <div class="col-auto">
+    <div class="d-flex align-items-center gap-2 justify-content-lg-end">
+       <button class="btn btn-filter px-4"><i class="bi bi-box-arrow-right me-2"></i>Imprimer liste</button>
+       <a class="btn btn-primary px-4" href="{% url 'ajouter_employe' %}"><i class="bi bi-plus-lg me-2"></i>Ajouter employer</a>
 
     </div>
+  </div>
+</div><!--end row-->
+
+<div class="card mt-4">
+    <div class="card-body">
+      <div class="customer-table">
+        <div class="table-responsive white-space-nowrap">
+           <table class="table align-middle">
+            <thead class="table-light">     
+              <tr>
+                <th>
+                  <input class="form-check-input" type="checkbox">
+                </th>
+                <th>Nom de l'employé</th>
+                <th>Prénom de l'employé</th>
+                <th>Date de naissance</th>
+                <th>Email</th>
+                <th>Adresse</th>
+              
+              </tr>
+             </thead>
+             <tbody>
+               {% for gct16_item in gct16_items %}
+               <tr>
+                 <td>
+                   <input class="form-check-input" type="checkbox">
+                 </td>
+                 <td>{{ gct16_item.nom_employe }}</td>
+                 <td>{{ gct16_item.prenom_employe }}</td>
+                 <td>{{ gct16_item.date_naissance }}</td>
+                 <td>{{ gct16_item.email }}</td>
+                 <td>{{ gct16_item.adresse }}</td>
+                
+               </tr>
+               {% endfor %}
+             </tbody>
+           </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  
   </main>
   <!--end main wrapper-->
 

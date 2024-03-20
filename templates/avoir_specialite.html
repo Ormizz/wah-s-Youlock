@@ -121,27 +121,37 @@
           <div class="card">
               <div class="card-body p-4">
                   <h5 class="mb-4">Avoir specialite</h5>
-                  <form class="row g-3">
-                      <div class="col-md-6">
-                          <label for="input1" class="form-label">candidat</label>
-                          <input type="text" class="form-control" id="input1" placeholder="candidat">
-                      </div>
-                      
-                      <div class="col-md-6">
-                          <label for="input2" class="form-label">Specialité</label>
-                          <input type="text" class="form-control" id="input2" placeholder="Specialité">
-                      </div>
-                      <div class="col-md-6">
-                          <label for="input3" class="form-label">Date</label>
-                          <input type="date" class="form-control" id="input3" placeholder="Date">
-                      </div>
-                      
-                      <div class="col-md-12">
-                          <div class="d-md-flex d-grid align-items-center gap-3">
-                              <button type="button" class="btn btn-primary px-4">VALIDER</button>
-                          </div>
-                      </div>
-                  </form>
+                  <form class="row g-3" method="POST">
+                    {% csrf_token %}
+                    <div class="col-md-6">
+                        <label for="input1" class="form-label">Candidat</label>
+                        <select class="form-select" id="input1" name="candidat">
+                            {% for candidat in candidats %}
+                            <option value="{{ candidat.id }}">{{ candidat.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <label for="input2" class="form-label">Spécialité</label>
+                        <select class="form-select" id="input2" name="specialite">
+                            {% for specialite in specialites %}
+                            <option value="{{ specialite.id }}">{{ specialite.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="input3" class="form-label">Date</label>
+                        <input type="date" class="form-control" id="input3" name="date">
+                    </div>
+                    
+                    <div class="col-md-12">
+                        <div class="d-md-flex d-grid align-items-center gap-3">
+                            <button type="submit" class="btn btn-primary px-4">VALIDER</button>
+                        </div>
+                    </div>
+                </form>
+                
               </div>
           </div>
       </div>
@@ -153,21 +163,27 @@
         <div class="card-body">
           <h5 class="card-title">Liste des enregistrements</h5>
           <table class="table">
-            <thead>
-              <tr>
-                
-                <th scope="col">candidat</th>
-                <th scope="col">Specialité</th>
-                <th scope="col">date</th>
-                <th scope="col">Modifier</th>
-                <th scope="col">Supprimer</th>
-              </tr>
-            </thead>
-            <tbody id="record-list">
-              <!-- Les enregistrements seront ajoutés ici dynamiquement -->
-            </tbody>
+              <thead>
+                  <tr>
+                      <th scope="col">Candidat</th>
+                      <th scope="col">Spécialité</th>
+                      <th scope="col">Date</th>
+                  </tr>
+              </thead>
+              <tbody id="record-list">
+                  {% for gct05_item in gct05_items %}
+                  <tr>
+                      <td>{{ gct05_item.candidat }}</td>
+                      <td>{{ gct05_item.specialite }}</td>
+                      <td>{{ gct05_item.date }}</td>
+                      <td><a href="{% url 'gct05_update' gct05_item.pk %}">Modifier</a></td>
+                      <td><a href="{% url 'gct05_delete' gct05_item.pk %}">Supprimer</a></td>
+                  </tr>
+                  {% endfor %}
+              </tbody>
           </table>
-        </div>
+      </div>
+      
       </div>
     </div>
   </div>

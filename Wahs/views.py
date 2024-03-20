@@ -67,8 +67,8 @@ def compte_comptable(request):
 def avoir_specialite(request):
     return render(request, 'avoir_specialite.html')
 
-def employe(request):
-    return render(request, 'employe.html')
+def ajouter_employe(request):
+    return render(request, 'ajouter_employe.html')
 
 def sit_matri(request):
     return render(request, 'sit_matri.html')
@@ -80,8 +80,10 @@ def type_question(request):
 
 
 
+
 def abonnement(request):
     return render(request, 'abonnement.html')
+    
 
 def avoir_sit_matri(request):
     return render(request, 'avoir_sit_matri.html')
@@ -103,3 +105,6 @@ def grp_utilisateur(request):
 
 def obt_diplome(request):
     return render(request, 'obt_diplome.html')
+
+def liste_employe(request):
+    return render(request, 'liste_employe.html')

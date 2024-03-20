@@ -120,74 +120,47 @@
         <div class="col-lg-6">
             <div class="card">
                 <div class="card-body p-4">
-                    <h5 class="mb-4">Ajouter Employé</h5>
-                    <form class="row g-3">
-                        <div class="col-md-6">
-                            <label for="input1" class="form-label">Nom de l'employé</label>
-                            <input type="text" class="form-control" id="input1" placeholder="Nom">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="input2" class="form-label">Prénom de l'employé</label>
-                            <input type="text" class="form-control" id="input2" placeholder="Prénom">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="input3" class="form-label">Date de Naissance</label>
-                            <input type="date" class="form-control" id="input3">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="input4" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="input4" placeholder="joseph@exemple.com">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="input5" class="form-label">Adresse</label>
-                            <input type="text" class="form-control" id="input5" placeholder="Adresse complète">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="input6" class="form-label">N° tel</label>
-                            <input type="tel" class="form-control" id="input6" placeholder="Numéro de téléphone">
-                        </div>
-                        <div class="col-12">
-                            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                                <button type="button" class="btn btn-primary px-4">Soumettre</button>
-                                <button type="button" class="btn btn-light px-4">Effacer</button>
-                            </div>
-                        </div>
-                    </form>
+                    <h5 class="mb-4">Ajouter employé</h5>
+                    <form method="post" action="{% url 'gct16_create' %}" class="row g-3">
+                      {% csrf_token %}
+                      <div class="col-md-6">
+                          <label for="input1" class="form-label">Nom de l'employé</label>
+                          <input type="text" class="form-control" id="input1" name="nom_employe" placeholder="Nom">
+                      </div>
+                      <div class="col-md-6">
+                          <label for="input2" class="form-label">Prénom de l'employé</label>
+                          <input type="text" class="form-control" id="input2" name="prenom_employe" placeholder="Prénom">
+                      </div>
+                      <div class="col-md-6">
+                          <label for="input3" class="form-label">Date de Naissance</label>
+                          <input type="date" class="form-control" id="input3" name="date_naissance">
+                      </div>
+                      <div class="col-md-6">
+                          <label for="input4" class="form-label">Email</label>
+                          <input type="email" class="form-control" id="input4" name="email" placeholder="joseph@exemple.com">
+                      </div>
+                      <div class="col-md-6">
+                          <label for="input5" class="form-label">Adresse</label>
+                          <input type="text" class="form-control" id="input5" name="adresse" placeholder="Adresse complète">
+                      </div>
+                      <div class="col-md-6">
+                          <label for="input6" class="form-label">N° tel</label>
+                          <input type="tel" class="form-control" id="input6" name="telephone" placeholder="Numéro de téléphone">
+                      </div>
+                      <div class="col-12">
+                          <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                              <button type="submit" class="btn btn-primary px-4">Soumettre</button>
+                              <button type="reset" class="btn btn-light px-4">Effacer</button>
+                          </div>
+                      </div>
+                  </form>
+                  
                 </div>
             </div>
         </div>
     </div>
 </div>
- <div class="container my-100">
-    <div class="row justify-content-center">
-    <div class="col-lg-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Liste des employés</h5>
-          <table class="table">
-            <thead>
-              <tr>
-                
-                <th scope="col">code</th>
-                <th scope="col">Nom</th>
-                <th scope="col">Prenoms</th>
-                <th scope="col">Date</th>
-                <th scope="col">Email</th>
-                <th scope="col">Adresse</th>
-                <th scope="col">Tel</th>
-                <th scope="col">Modifier</th>
-                <th scope="col">Supprimer</th>
-              </tr>
-            </thead>
-            <tbody id="record-list">
-              <!-- Les enregistrements seront ajoutés ici dynamiquement -->
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+
     
 
          <div class="row">
