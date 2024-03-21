@@ -42,6 +42,7 @@ urlpatterns = [
     path('compte_comptable/', views.compte_comptable, name='compte_comptable'),
     path('avoir_specialité/', views.avoir_specialite, name='avoir_specialite'),
     path('sit_matri/', views.sit_matri, name='sit_matri'),
+    path('index/', views.index, name='index'),
     path('liste_employe/', views.liste_employe, name='liste_employe'),
     path('type_question/', views.type_question, name='type_question'),
     path('abonnement/', views.abonnement, name='abonnement'),

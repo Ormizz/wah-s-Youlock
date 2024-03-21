@@ -108,3 +108,5 @@ def obt_diplome(request):
 
 def liste_employe(request):
     return render(request, 'liste_employe.html')
+def index(request):
+    return render(request, 'index.html')

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Acceuil</title>
+        <!-- Inclure le fichier CSS -->
+        <link rel="stylesheet" href="{% static 'assetp/css/style.css' %}">
+        <!-- Précharger les images -->
+        <link rel="preload" as="image" href="{% static 'hero-bg.jpg' %}">
+        <link rel="preload" as="image" href="{% static 'assetp/images/hero-slide-1.jpg' %}">
+        <link rel="preload" as="image" href="{% static 'assetp/images/hero-slide-2.jpg' %}">
+        <link rel="preload" as="image" href="{% static 'assetp/images/hero-slide-3.jpg' %}">
+    </head>
+
+<body>
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="#" class="logo">
+        <img src="{% static '/assetp/images/logo.png' %}" width="74" height="24" alt="" class="logo-light">
+
+        <img src="{% static '/assetp/images/logo.png' %}" width="74" height="24" alt="" class="logo-dark">
+      </a>
+
+      <nav class="navbar" data-navbar>
+
+        <div class="navbar-top">
+          <a href="#" class="logo">
+            <img src="{% static 'assetp/images/logo-light.svg' %}" width="74" height="24" alt="Adex home">
+          </a>
+
+          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
+
+        <ul class="navbar-list">
+
+          <li>
+            <a href="#" class="navbar-link">Voir Offres</a>
+          </li>
+
+         
+
+        </ul>
+
+        <div class="wrapper">
+          <a href="mailto:info@email.com" class="contact-link">info@email.com</a>
+
+          <a href="tel:001234567890" class="contact-link">00 (123) 456 78 90</a>
+        </div>
+
+       
+
+      </nav>
+
+      <a href="{% url 'postuler' %}" class="btn btn-primary">Postuler</a>
+
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+      </button>
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+  </header>
+
+
+
+
+
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO
+      -->
+
+{% load static %}
+
+<section class="section hero has-bg-image" aria-label="home">
+    <style>
+      .hero {
+        background-image: url('{% static "assetp/images/hero-bg.jpg" %}');
+      }
+    </style>
+  <div class="container">
+
+    <div class="hero-content">
+
+      <h1 class="h1 hero-title">Conception de stratégies de recrutement ciblées avec précision</h1>
+
+      <p class="hero-text">
+        Nous sommes les maîtres de la traque, spécialistes dans la construction de relations à long terme avec nos précieux partenaires.
+      </p>
+
+      <div class="btn-wrapper">
+
+        <a href="{% url 'appel_offres' %}" class="btn btn-primary">Explorer les offres</a>
+
+        <a href="{% url 'connexion' %}" class="btn btn-outline">Se connecter</a>
+
+      </div>
+
+    </div>
+
+    <div class="hero-slider" data-slider>
+
+      <div class="slider-inner">
+        <ul class="slider-container" data-slider-container>
+
+          <li class="slider-item">
+
+            <figure class="img-holder" style="--width: 575; --height: 550;">
+              <img src="{% static 'assetp/images/hero-slide-1.jpg' %}" width="575" height="550" alt="" class="img-cover">
+            </figure>
+
+          </li>
+
+          <li class="slider-item">
+
+            <div class="hero-card">
+              <figure class="img-holder" style="--width: 575; --height: 550;">
+                <img src="{% static 'assetp/images/hero-slide-2.jpg' %}" width="575" height="550" alt="hero banner" class="img-cover">
+              </figure>
+
+              <button class="play-btn" aria-label="play adex intro">
+                <ion-icon name="play" aria-hidden="true"></ion-icon>
+              </button>
+            </div>
+
+          </li>
+
+          <li class="slider-item">
+
+            <figure class="img-holder" style="--width: 575; --height: 550;">
+              <img src="{% static 'assetp/images/hero-slide-3.jpg' %}" width="575" height="550" alt="" class="img-cover">
+            </figure>
+
+          </li>
+
+        </ul>
+      </div>
+
+      <button class="slider-btn prev" aria-label="slide to previous" data-slider-prev>
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+
+      <button class="slider-btn next" aria-label="slide to next" data-slider-next>
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+      <!-- 
+        - #SERVICE
+      -->
+
+      <section class="section service" aria-labelledby="service-label">
+        <div class="container">
+
+          <p class="section-subtitle" id="service-label">Notre mission?</p>
+
+          <h2 class="h2 section-title">
+            "Notre service est spécifiquement conçu pour répondre à vos besoins."
+          </h2>
+
+          <ul class="grid-list">
+
+            <li>
+                <div class="service-card">
+                  <div class="card-icon">
+                    <ion-icon name="document-text-outline" aria-hidden="true"></ion-icon>
+                  </div>
+                  <h3 class="h4 card-title">Test de Compétence en Ligne</h3>
+                  <p class="card-text">
+                    Évaluez vos compétences en ligne avec nos tests spécialisés. Obtenez des résultats précis et fiables pour vous guider dans votre développement professionnel.
+                  </p>
+                 
+                </div>
+              </li>
+
+            <li>
+                <div class="service-card">
+                  <div class="card-icon">
+                    <ion-icon name="shield-checkmark-outline" aria-hidden="true"></ion-icon>
+                  </div>
+                  <h3 class="h4 card-title">Interface Sécurisée et Fiable</h3>
+                  <p class="card-text">
+                    Bénéficiez d'une interface sécurisée et fiable pour toutes vos transactions. Nous nous engageons à protéger vos données avec la plus haute sécurité.
+                  </p>
+                 
+                </div>
+              </li>
+
+            <li>
+                <div class="service-card">
+                  <div class="card-icon">
+                    <ion-icon name="cloud-download-outline" aria-hidden="true"></ion-icon>
+                  </div>
+                  <h3 class="h4 card-title">Dépôt de CV en Ligne</h3>
+                  <p class="card-text">
+                    Simplifiez le processus de candidature en déposant votre CV en ligne. Nous offrons des mises à jour quotidiennes pour vous tenir informé(e) des opportunités correspondant à votre profil.
+                  </p>
+                 
+                </div>
+              </li>
+
+            <li>
+             
+<div class="service-card">
+    <div class="card-icon">
+      <ion-icon name="pie-chart-outline" aria-hidden="true"></ion-icon>
+    </div>
+    <h3 class="h4 card-title">Recherche de Candidats sur Mesure</h3>
+    <p class="card-text">
+      Notre service est spécifiquement conçu pour répondre à vos besoins. Nous cherchons les candidats qui correspondent parfaitement au poste que vous proposez.
+    </p>
+   
+  </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #ABOUT
+      -->
+
+      <section class="about" aria-labelledby="about-label">
+        <div class="container">
+          <figure class="about-banner">
+            <img src="{% static 'assets/images/logo.png' %}" width="800" height="580" loading="lazy" alt="about banner" class="w-100">
+          </figure>
+
+          <div class="about-content">
+            <p class="section-subtitle" id="about-label">Pourquoi Nous Choisir?</p>
+            <h2 class="h2 section-title">
+              Nous apportons des solutions pour simplifier la vie de nos clients.
+            </h2>
+          
+            <ul>
+              <li class="about-item">
+                <div class="accordion-card expanded" data-accordion>
+                  <h3 class="card-title">
+                    <button class="accordion-btn" data-accordion-btn>
+                      <ion-icon name="chevron-down-outline" aria-hidden="true" class="down"></ion-icon>
+                      <span class="span h5">Conception Professionnelle</span>
+                    </button>
+                  </h3>
+                  <p class="accordion-content">
+                    Nous concevons des solutions sur mesure pour répondre aux besoins spécifiques de nos clients.
+                  </p>
+                </div>
+              </li>
+          
+              <li class="about-item">
+                <div class="accordion-card" data-accordion>
+                  <h3 class="card-title">
+                    <button class="accordion-btn" data-accordion-btn>
+                      <ion-icon name="chevron-down-outline" aria-hidden="true" class="down"></ion-icon>
+                      <span class="span h5">Support de Premier Ordre</span>
+                    </button>
+                  </h3>
+                  <p class="accordion-content">
+                    Notre équipe dévouée est là pour vous accompagner à chaque étape du processus de recrutement.
+                  </p>
+                </div>
+              </li>
+          
+              <li class="about-item">
+                <div class="accordion-card" data-accordion>
+                  <h3 class="card-title">
+                    <button class="accordion-btn" data-accordion-btn>
+                      <ion-icon name="chevron-down-outline" aria-hidden="true" class="down"></ion-icon>
+                      <span class="span h5">Atout Exclusif</span>
+                    </button>
+                  </h3>
+                  <p class="accordion-content">
+                    Bénéficiez d'un accès exclusif à un vivier de talents qualifiés pour répondre à vos besoins de recrutement.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #FEATURE
+      -->
+
+     <!-- templates/myapp/mytemplate.html -->
+{% load static %}
+
+
+  
+
+
+
+
+      
+
+
+
+
+
+      <!-- 
+        - #CTA
+      -->
+
+      <section class="cta" aria-label="call to action">
+        <div class="container">
+
+          <h2 class="h2 section-title">
+           Faites nous confiance on vous trouve l'employé idéal
+          </h2>
+
+          <a href="{% url 'postuler' %}" class="btn btn-primary">Postuler</a>
+
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+
+
+
+
+  
+  <!-- 
+    - custom js link
+  -->
+  <script src="{% static 'assetp/js/script.js' %}"></script>
+
+
+  <!-- 
+    - ionicon
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
